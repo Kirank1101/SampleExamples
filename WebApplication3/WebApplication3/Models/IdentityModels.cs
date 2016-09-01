@@ -42,6 +42,8 @@ namespace WebApplication3.Models
         public System.Data.Entity.DbSet<WebApplication3.Models.BloodGroup> BloodGroups { get; set; }
 
         public System.Data.Entity.DbSet<WebApplication3.Models.Patientinfo> Patientinfoes { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication3.Models.PatientDetail> PatientDetails { get; set; }
     }
 }
 
