@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebApplication3.Models;
+using System.Data.Entity;
+using WebApplication3.Migrations;
 
 namespace WebApplication3.Models
 {
@@ -34,6 +36,12 @@ namespace WebApplication3.Models
         {
         }
 
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Configurations.Add(new StateHCConfiguration());
+        //    base.OnModelCreating(modelBuilder);
+        //}
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -44,6 +52,18 @@ namespace WebApplication3.Models
         public System.Data.Entity.DbSet<WebApplication3.Models.Patientinfo> Patientinfoes { get; set; }
 
         public System.Data.Entity.DbSet<WebApplication3.Models.PatientDetail> PatientDetails { get; set; }
+
+        public DbSet<StateHC> StateHC { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication3.Models.DistrictHC> DistrictHCs { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication3.Models.TalukHC> TalukHCs { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication3.Models.PrimaryHC> PrimaryHCs { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication3.Models.PrimaryHCSC> PrimaryHCSCs { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication3.Models.Villages> Villages { get; set; }
     }
 }
 

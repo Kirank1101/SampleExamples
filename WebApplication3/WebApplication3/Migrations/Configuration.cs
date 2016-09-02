@@ -3,13 +3,15 @@ namespace WebApplication3.Migrations
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Data.Entity.ModelConfiguration;
     using System.Linq;
+    using WebApplication3.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<WebApplication3.Models.ApplicationDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true ;
             ContextKey = "WebApplication3.Models.ApplicationDbContext";
         }
 
@@ -27,6 +29,21 @@ namespace WebApplication3.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+        }
+    }
+
+
+    class StateHCConfiguration : EntityTypeConfiguration<StateHC>
+    {
+        public StateHCConfiguration()
+            : base()
+        {
+            HasKey(p => p.StateHCID);
+
+            HasRequired(p => p.Name);
+
+                 ToTable("StateHC");
+                ;
         }
     }
 }
