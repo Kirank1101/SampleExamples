@@ -7,23 +7,23 @@ using System.Web;
 
 namespace Ormer_PHC.Models
 {
-    public class MSchemes
+    public class MSubSchemes
     {
         [Key]
-        public int MSchemesID { get; set; }
+        public int MSubSchemesID { get; set; }      
 
         [Required]
-        [StringLength(250, ErrorMessage = "Scheme Name cannot be longer than 250 characters.")]
-        [Column("Scheme")]
-        [Display(Name = "Scheme Name")]
-        public string SchemeName { get; set; }
+        [StringLength(250, ErrorMessage = "Sub-Scheme Name cannot be longer than 250 characters.")]
+        [Column("SubScheme")]
+        [Display(Name = "Sub-Scheme Name")]
+        public string SubSchemeName { get; set; }
        
 
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-        [Column("SchemeStdate")]
-        [Display(Name = "Scheme start date")]
+        [Column("SubSchemeStdate")]
+        [Display(Name = "Sub-Scheme start date")]
         public DateTime SchemeStdate { get; set; }      
 
         [Required]
@@ -31,10 +31,6 @@ namespace Ormer_PHC.Models
         [Display(Name = "Is Active")]
         public bool  IsActive { get; set; }
 
-        [DataType(DataType.Currency)]
-        [Column(TypeName = "Amount")]
-        [Display(Name = "Amount to be given")]
-        public decimal Amount { get; set; }
         
         [DataType(DataType.Date)]
         [Column("LastModifiedDate")]
@@ -46,6 +42,15 @@ namespace Ormer_PHC.Models
             }
 
         }
+
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "Amount")]
+        [Display(Name = "Amount to be given")]
+        public decimal Amount { get; set; }
+
+        public int MSchemesID { get; set; }
+
+        public virtual MSchemes MSchemes { get; set; }
 
     }
 }

@@ -770,6 +770,7 @@
     <Compile Include="Models\MDisease.cs" />
     <Compile Include="Models\MDrugs.cs" />
     <Compile Include="Models\MLabTest.cs" />
+    <Compile Include="Models\MSubSchemes.cs" />
     <Compile Include="Models\MSchemes.cs" />
     <Compile Include="Models\PatientInfo.cs" />
     <Compile Include="PatientInfoes\Default.aspx.cs">
