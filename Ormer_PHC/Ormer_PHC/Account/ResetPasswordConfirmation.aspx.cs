@@ -1,6 +1,6 @@
 ﻿using System.Web.UI;
 
-namespace WebApplication3.Account
+namespace Ormer_PHC.Account
 {
     public partial class ResetPasswordConfirmation : Page
     {

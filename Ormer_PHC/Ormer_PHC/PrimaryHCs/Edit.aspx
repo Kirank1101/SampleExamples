@@ -1,9 +1,9 @@
-﻿<%@ Page Title="PrimaryHCEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="WebApplication3.PrimaryHCs.Edit" %>
+﻿<%@ Page Title="PrimaryHCEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="Ormer_PHC.PrimaryHCs.Edit" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.PrimaryHC" DefaultMode="Edit" DataKeyNames="PrimaryHCID"
+            ItemType="Ormer_PHC.Models.PrimaryHC" DefaultMode="Edit" DataKeyNames="PrimaryHCID"
             UpdateMethod="UpdateItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>
@@ -15,7 +15,7 @@
 					<asp:ValidationSummary runat="server" CssClass="alert alert-danger"  />                 
 							<asp:DynamicControl Mode="Edit" 
 								DataField="TalukHCID" 
-								DataTypeName="WebApplication3.Models.TalukHC" 
+								DataTypeName="Ormer_PHC.Models.TalukHC" 
 								DataTextField="Name" 
 								DataValueField="TalukHCID" 
 								UIHint="ForeignKey" runat="server" />

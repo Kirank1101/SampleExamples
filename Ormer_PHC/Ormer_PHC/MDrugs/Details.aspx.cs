@@ -7,13 +7,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.Entity;
 using Microsoft.AspNet.FriendlyUrls.ModelBinding;
-using WebApplication3.Models;
+using Ormer_PHC.Models;
 
-namespace WebApplication3.MDrugs
+namespace Ormer_PHC.MDrugs
 {
     public partial class Details : System.Web.UI.Page
     {
-		protected WebApplication3.Models.ApplicationDbContext _db = new WebApplication3.Models.ApplicationDbContext();
+		protected Ormer_PHC.Models.ApplicationDbContext _db = new Ormer_PHC.Models.ApplicationDbContext();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +21,7 @@ namespace WebApplication3.MDrugs
 
         // This is the Select methd to selects a single MDrugs item with the id
         // USAGE: <asp:FormView SelectMethod="GetItem">
-        public WebApplication3.Models.MDrugs GetItem([FriendlyUrlSegmentsAttribute(0)]int? MDrugID)
+        public Ormer_PHC.Models.MDrugs GetItem([FriendlyUrlSegmentsAttribute(0)]int? MDrugID)
         {
             if (MDrugID == null)
             {

@@ -1,9 +1,9 @@
-﻿<%@ Page Title="VillagesEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="WebApplication3.Villages.Edit" %>
+﻿<%@ Page Title="VillagesEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="Ormer_PHC.Villages.Edit" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.Villages" DefaultMode="Edit" DataKeyNames="VillagesID"
+            ItemType="Ormer_PHC.Models.Villages" DefaultMode="Edit" DataKeyNames="VillagesID"
             UpdateMethod="UpdateItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>
@@ -15,7 +15,7 @@
 					<asp:ValidationSummary runat="server" CssClass="alert alert-danger"  />                 
 							<asp:DynamicControl Mode="Edit" 
 								DataField="PrimaryHCSCID" 
-								DataTypeName="WebApplication3.Models.PrimaryHCSC" 
+								DataTypeName="Ormer_PHC.Models.PrimaryHCSC" 
 								DataTextField="Name" 
 								DataValueField="PrimaryHCSCID" 
 								UIHint="ForeignKey" runat="server" />

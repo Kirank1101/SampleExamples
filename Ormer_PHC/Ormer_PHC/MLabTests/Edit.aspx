@@ -1,9 +1,9 @@
-﻿<%@ Page Title="MLabTestEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="WebApplication3.MLabTests.Edit" %>
+﻿<%@ Page Title="MLabTestEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="Ormer_PHC.MLabTests.Edit" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.MLabTest" DefaultMode="Edit" DataKeyNames="MLabTestID"
+            ItemType="Ormer_PHC.Models.MLabTest" DefaultMode="Edit" DataKeyNames="MLabTestID"
             UpdateMethod="UpdateItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

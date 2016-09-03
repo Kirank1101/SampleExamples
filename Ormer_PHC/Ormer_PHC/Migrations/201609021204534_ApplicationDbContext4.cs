@@ -1,4 +1,4 @@
-namespace WebApplication3.Migrations
+namespace Ormer_PHC.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

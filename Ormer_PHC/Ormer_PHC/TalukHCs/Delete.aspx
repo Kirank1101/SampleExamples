@@ -1,10 +1,10 @@
-﻿<%@ Page Title="TalukHCDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="WebApplication3.TalukHCs.Delete" %>
+﻿<%@ Page Title="TalukHCDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="Ormer_PHC.TalukHCs.Delete" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <h3>Are you sure want to delete this TalukHC?</h3>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.TalukHC" DataKeyNames="TalukHCID"
+            ItemType="Ormer_PHC.Models.TalukHC" DataKeyNames="TalukHCID"
             DeleteMethod="DeleteItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

@@ -1,9 +1,9 @@
-﻿<%@ Page Title="MBloodGroupInsert" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Insert.aspx.cs" Inherits="WebApplication3.BloodGroups.Insert" %>
+﻿<%@ Page Title="MBloodGroupInsert" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Insert.aspx.cs" Inherits="Ormer_PHC.BloodGroups.Insert" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.MBloodGroup" DefaultMode="Insert"
+            ItemType="Ormer_PHC.Models.MBloodGroup" DefaultMode="Insert"
             InsertItemPosition="FirstItem" InsertMethod="InsertItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <InsertItemTemplate>

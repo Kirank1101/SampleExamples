@@ -7,9 +7,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using WebApplication3.Models;
+using Ormer_PHC.Models;
 
-namespace WebApplication3.Account
+namespace Ormer_PHC.Account
 {
     public partial class TwoFactorAuthenticationSignIn : System.Web.UI.Page
     {

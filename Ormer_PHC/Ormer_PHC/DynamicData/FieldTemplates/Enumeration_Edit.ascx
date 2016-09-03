@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" CodeBehind="Enumeration_Edit.ascx.cs" Inherits="WebApplication3.Enumeration_EditField" %>
+﻿<%@ Control Language="C#" CodeBehind="Enumeration_Edit.ascx.cs" Inherits="Ormer_PHC.Enumeration_EditField" %>
 
 <div id="Div1" runat="server" class="form-group">
     <asp:Label ID="Label1" runat="server" CssClass="col-sm-2 control-label" />

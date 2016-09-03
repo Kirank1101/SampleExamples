@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.Entity;
-using WebApplication3.Models;
+using Ormer_PHC.Models;
 
-namespace WebApplication3.TalukHCs
+namespace Ormer_PHC.TalukHCs
 {
     public partial class Insert : System.Web.UI.Page
     {
-		protected WebApplication3.Models.ApplicationDbContext _db = new WebApplication3.Models.ApplicationDbContext();
+		protected Ormer_PHC.Models.ApplicationDbContext _db = new Ormer_PHC.Models.ApplicationDbContext();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +24,7 @@ namespace WebApplication3.TalukHCs
         {
             using (_db)
             {
-                var item = new WebApplication3.Models.TalukHC();
+                var item = new Ormer_PHC.Models.TalukHC();
 
                 TryUpdateModel(item);
 

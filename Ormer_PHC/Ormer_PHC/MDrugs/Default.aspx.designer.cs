@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.MDrugs {
+namespace Ormer_PHC.MDrugs {
     public partial class Default {
         /// <summary>
         /// form1 control.

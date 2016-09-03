@@ -1,10 +1,10 @@
-﻿<%@ Page Title="PrimaryHCSC Details" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Details.aspx.cs" Inherits="WebApplication3.PrimaryHCSCs.Details" %>
+﻿<%@ Page Title="PrimaryHCSC Details" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Details.aspx.cs" Inherits="Ormer_PHC.PrimaryHCSCs.Details" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
       
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.PrimaryHCSC" DataKeyNames="PrimaryHCSCID"
+            ItemType="Ormer_PHC.Models.PrimaryHCSC" DataKeyNames="PrimaryHCSCID"
             SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

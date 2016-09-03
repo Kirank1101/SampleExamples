@@ -7,9 +7,9 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using WebApplication3.Models;
+using Ormer_PHC.Models;
 
-namespace WebApplication3
+namespace Ormer_PHC
 {
     public partial class Startup {
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.StateHC {
+namespace Ormer_PHC.StateHC {
     public partial class Details {
         /// <summary>
         /// form1 control.

@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebApplication3</RootNamespace>
-    <AssemblyName>WebApplication3</AssemblyName>
+    <RootNamespace>Ormer_PHC</RootNamespace>
+    <AssemblyName>Ormer_PHC</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -770,6 +770,7 @@
     <Compile Include="Models\MDisease.cs" />
     <Compile Include="Models\MDrugs.cs" />
     <Compile Include="Models\MLabTest.cs" />
+    <Compile Include="Models\MSchemes.cs" />
     <Compile Include="Models\PatientInfo.cs" />
     <Compile Include="PatientInfoes\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

@@ -1,10 +1,10 @@
-﻿<%@ Page Title="StateHCDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="WebApplication3.StateHC.Delete" %>
+﻿<%@ Page Title="StateHCDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="Ormer_PHC.StateHC.Delete" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <h3>Are you sure want to delete this StateHC?</h3>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.StateHC" DataKeyNames="StateHCID"
+            ItemType="Ormer_PHC.Models.StateHC" DataKeyNames="StateHCID"
             DeleteMethod="DeleteItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

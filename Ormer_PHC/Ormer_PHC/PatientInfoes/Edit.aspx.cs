@@ -7,12 +7,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.Entity;
 using Microsoft.AspNet.FriendlyUrls.ModelBinding;
-using WebApplication3.Models;
-namespace WebApplication3.PatientInfoes
+using Ormer_PHC.Models;
+namespace Ormer_PHC.PatientInfoes
 {
     public partial class Edit : System.Web.UI.Page
     {
-		protected WebApplication3.Models.ApplicationDbContext _db = new WebApplication3.Models.ApplicationDbContext();
+		protected Ormer_PHC.Models.ApplicationDbContext _db = new Ormer_PHC.Models.ApplicationDbContext();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,7 +46,7 @@ namespace WebApplication3.PatientInfoes
 
         // This is the Select method to selects a single PatientInfo item with the id
         // USAGE: <asp:FormView SelectMethod="GetItem">
-        public WebApplication3.Models.PatientInfo GetItem([FriendlyUrlSegmentsAttribute(0)]int? PatientID)
+        public Ormer_PHC.Models.PatientInfo GetItem([FriendlyUrlSegmentsAttribute(0)]int? PatientID)
         {
             if (PatientID == null)
             {

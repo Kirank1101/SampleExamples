@@ -1,4 +1,4 @@
-﻿<%@ Page Title="DistrictHCList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="WebApplication3.DistrictHCs.Default" %>
+﻿<%@ Page Title="DistrictHCList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="Ormer_PHC.DistrictHCs.Default" %>
 <%@ Register TagPrefix="FriendlyUrls" Namespace="Microsoft.AspNet.FriendlyUrls" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <h2>DistrictHCs List</h2>
@@ -8,7 +8,7 @@
     <div>
         <asp:ListView id="ListView1" runat="server"
             DataKeyNames="DistricHCID" 
-			ItemType="WebApplication3.Models.DistrictHC"
+			ItemType="Ormer_PHC.Models.DistrictHC"
             SelectMethod="GetData">
             <EmptyDataTemplate>
                 There are no entries found for DistrictHCs

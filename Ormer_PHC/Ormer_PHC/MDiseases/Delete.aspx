@@ -1,10 +1,10 @@
-﻿<%@ Page Title="MDiseaseDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="WebApplication3.MDiseases.Delete" %>
+﻿<%@ Page Title="MDiseaseDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="Ormer_PHC.MDiseases.Delete" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <h3>Are you sure want to delete this MDisease?</h3>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.MDisease" DataKeyNames="MDiseaseID"
+            ItemType="Ormer_PHC.Models.MDisease" DataKeyNames="MDiseaseID"
             DeleteMethod="DeleteItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

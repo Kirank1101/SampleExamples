@@ -1,9 +1,9 @@
-﻿<%@ Page Title="PrimaryHCInsert" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Insert.aspx.cs" Inherits="WebApplication3.PrimaryHCs.Insert" %>
+﻿<%@ Page Title="PrimaryHCInsert" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Insert.aspx.cs" Inherits="Ormer_PHC.PrimaryHCs.Insert" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.PrimaryHC" DefaultMode="Insert"
+            ItemType="Ormer_PHC.Models.PrimaryHC" DefaultMode="Insert"
             InsertItemPosition="FirstItem" InsertMethod="InsertItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <InsertItemTemplate>
@@ -12,7 +12,7 @@
 		        <asp:ValidationSummary runat="server" CssClass="alert alert-danger" />
 							<asp:DynamicControl Mode="Insert" 
 								DataField="TalukHCID" 
-								DataTypeName="WebApplication3.Models.TalukHC" 
+								DataTypeName="Ormer_PHC.Models.TalukHC" 
 								DataTextField="Name" 
 								DataValueField="TalukHCID" 
 								UIHint="ForeignKey" runat="server" />

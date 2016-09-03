@@ -1,9 +1,9 @@
-﻿<%@ Page Title="DistrictHCInsert" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Insert.aspx.cs" Inherits="WebApplication3.DistrictHCs.Insert" %>
+﻿<%@ Page Title="DistrictHCInsert" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Insert.aspx.cs" Inherits="Ormer_PHC.DistrictHCs.Insert" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.DistrictHC" DefaultMode="Insert"
+            ItemType="Ormer_PHC.Models.DistrictHC" DefaultMode="Insert"
             InsertItemPosition="FirstItem" InsertMethod="InsertItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <InsertItemTemplate>
@@ -12,7 +12,7 @@
 		        <asp:ValidationSummary runat="server" CssClass="alert alert-danger" />
 							<asp:DynamicControl Mode="Insert" 
 								DataField="StateHCID" 
-								DataTypeName="WebApplication3.Models.StateHC" 
+								DataTypeName="Ormer_PHC.Models.StateHC" 
 								DataTextField="Name" 
 								DataValueField="StateHCID" 
 								UIHint="ForeignKey" runat="server" />

@@ -4,9 +4,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
-using WebApplication3.Models;
+using Ormer_PHC.Models;
 
-namespace WebApplication3.Account
+namespace Ormer_PHC.Account
 {
     public partial class RegisterExternalLogin : System.Web.UI.Page
     {

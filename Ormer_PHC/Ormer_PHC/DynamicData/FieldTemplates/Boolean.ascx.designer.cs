@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3 {
+namespace Ormer_PHC {
     public partial class BooleanField {
         protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
     }

@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebApplication3 {
+namespace Ormer_PHC {
     public partial class BooleanField : System.Web.DynamicData.FieldTemplateUserControl {
 
         protected override void OnDataBinding(EventArgs e) {

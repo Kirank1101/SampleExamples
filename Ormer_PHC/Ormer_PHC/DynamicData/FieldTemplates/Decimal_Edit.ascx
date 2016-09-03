@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" CodeBehind="Decimal_Edit.ascx.cs" Inherits="WebApplication3.Decimal_EditField" %>
+﻿<%@ Control Language="C#" CodeBehind="Decimal_Edit.ascx.cs" Inherits="Ormer_PHC.Decimal_EditField" %>
 
 <div id="Div1" runat="server" class="form-group">
     <asp:Label ID="Label1" runat="server" CssClass="col-sm-2 control-label" />

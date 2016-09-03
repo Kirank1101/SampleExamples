@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.PrimaryHCSCs {
+namespace Ormer_PHC.PrimaryHCSCs {
     public partial class Insert {
         
         /// <summary>

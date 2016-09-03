@@ -6,12 +6,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Linq;
-using WebApplication3.Models;
+using Ormer_PHC.Models;
 
-namespace WebApplication3 {
+namespace Ormer_PHC {
     public partial class ForeignKey_EditField : System.Web.DynamicData.FieldTemplateUserControl {
 
-		protected WebApplication3.Models.ApplicationDbContext _db = new WebApplication3.Models.ApplicationDbContext();
+		protected Ormer_PHC.Models.ApplicationDbContext _db = new Ormer_PHC.Models.ApplicationDbContext();
 
 		public string DataTypeName { get; set; }
 

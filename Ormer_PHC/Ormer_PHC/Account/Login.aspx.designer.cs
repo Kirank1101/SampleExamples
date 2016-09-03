@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.Account {
+namespace Ormer_PHC.Account {
     
     
     public partial class Login {
@@ -73,6 +73,6 @@ namespace WebApplication3.Account {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WebApplication3.Account.OpenAuthProviders OpenAuthLogin;
+        protected global::Ormer_PHC.Account.OpenAuthProviders OpenAuthLogin;
     }
 }

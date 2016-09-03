@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebApplication3 {
+namespace Ormer_PHC {
     public partial class MultilineText_EditField : System.Web.DynamicData.FieldTemplateUserControl {
 		
 		protected void Page_Init(object sender, EventArgs e)

@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.Entity;
-using WebApplication3.Models;
+using Ormer_PHC.Models;
 
-namespace WebApplication3.TalukHCs
+namespace Ormer_PHC.TalukHCs
 {
     public partial class Default : System.Web.UI.Page
     {
-		protected WebApplication3.Models.ApplicationDbContext _db = new WebApplication3.Models.ApplicationDbContext();
+		protected Ormer_PHC.Models.ApplicationDbContext _db = new Ormer_PHC.Models.ApplicationDbContext();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,7 +19,7 @@ namespace WebApplication3.TalukHCs
 
         // Model binding method to get List of TalukHC entries
         // USAGE: <asp:ListView SelectMethod="GetData">
-        public IQueryable<WebApplication3.Models.TalukHC> GetData()
+        public IQueryable<Ormer_PHC.Models.TalukHC> GetData()
         {
             return _db.TalukHCs.Include(m => m.DistricHC);
         }

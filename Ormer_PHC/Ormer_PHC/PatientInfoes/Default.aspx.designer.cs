@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.PatientInfoes {
+namespace Ormer_PHC.PatientInfoes {
     public partial class Default {
         /// <summary>
         /// form1 control.

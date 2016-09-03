@@ -1,10 +1,10 @@
-﻿<%@ Page Title="TalukHC Details" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Details.aspx.cs" Inherits="WebApplication3.TalukHCs.Details" %>
+﻿<%@ Page Title="TalukHC Details" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Details.aspx.cs" Inherits="Ormer_PHC.TalukHCs.Details" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
       
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.TalukHC" DataKeyNames="TalukHCID"
+            ItemType="Ormer_PHC.Models.TalukHC" DataKeyNames="TalukHCID"
             SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

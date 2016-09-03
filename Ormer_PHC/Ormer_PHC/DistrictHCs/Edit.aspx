@@ -1,9 +1,9 @@
-﻿<%@ Page Title="DistrictHCEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="WebApplication3.DistrictHCs.Edit" %>
+﻿<%@ Page Title="DistrictHCEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="Ormer_PHC.DistrictHCs.Edit" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.DistrictHC" DefaultMode="Edit" DataKeyNames="DistricHCID"
+            ItemType="Ormer_PHC.Models.DistrictHC" DefaultMode="Edit" DataKeyNames="DistricHCID"
             UpdateMethod="UpdateItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>
@@ -15,7 +15,7 @@
 					<asp:ValidationSummary runat="server" CssClass="alert alert-danger"  />                 
 							<asp:DynamicControl Mode="Edit" 
 								DataField="StateHCID" 
-								DataTypeName="WebApplication3.Models.StateHC" 
+								DataTypeName="Ormer_PHC.Models.StateHC" 
 								DataTextField="Name" 
 								DataValueField="StateHCID" 
 								UIHint="ForeignKey" runat="server" />

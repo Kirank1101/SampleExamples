@@ -1,10 +1,10 @@
-﻿<%@ Page Title="MDisease Details" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Details.aspx.cs" Inherits="WebApplication3.MDiseases.Details" %>
+﻿<%@ Page Title="MDisease Details" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Details.aspx.cs" Inherits="Ormer_PHC.MDiseases.Details" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
       
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.MDisease" DataKeyNames="MDiseaseID"
+            ItemType="Ormer_PHC.Models.MDisease" DataKeyNames="MDiseaseID"
             SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

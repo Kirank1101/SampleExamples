@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.Account {
+namespace Ormer_PHC.Account {
     
     
     public partial class ResetPasswordConfirmation {

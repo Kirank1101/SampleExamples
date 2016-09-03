@@ -6,7 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 
-namespace WebApplication3.Models
+namespace Ormer_PHC.Models
 {
     // You can add User data for the user by adding more properties to your User class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
@@ -43,33 +43,33 @@ namespace WebApplication3.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<WebApplication3.Models.MBloodGroup> BloodGroups { get; set; }
+        public System.Data.Entity.DbSet<Ormer_PHC.Models.MBloodGroup> BloodGroups { get; set; }
 
        
         public DbSet<StateHC> StateHC { get; set; }
 
-        public System.Data.Entity.DbSet<WebApplication3.Models.DistrictHC> DistrictHCs { get; set; }
+        public System.Data.Entity.DbSet<Ormer_PHC.Models.DistrictHC> DistrictHCs { get; set; }
 
-        public System.Data.Entity.DbSet<WebApplication3.Models.TalukHC> TalukHCs { get; set; }
+        public System.Data.Entity.DbSet<Ormer_PHC.Models.TalukHC> TalukHCs { get; set; }
 
-        public System.Data.Entity.DbSet<WebApplication3.Models.PrimaryHC> PrimaryHCs { get; set; }
+        public System.Data.Entity.DbSet<Ormer_PHC.Models.PrimaryHC> PrimaryHCs { get; set; }
 
-        public System.Data.Entity.DbSet<WebApplication3.Models.PrimaryHCSC> PrimaryHCSCs { get; set; }
+        public System.Data.Entity.DbSet<Ormer_PHC.Models.PrimaryHCSC> PrimaryHCSCs { get; set; }
 
-        public System.Data.Entity.DbSet<WebApplication3.Models.Villages> Villages { get; set; }
+        public System.Data.Entity.DbSet<Ormer_PHC.Models.Villages> Villages { get; set; }
 
-        public System.Data.Entity.DbSet<WebApplication3.Models.MDrugs> MDrugs { get; set; }
+        public System.Data.Entity.DbSet<Ormer_PHC.Models.MDrugs> MDrugs { get; set; }
 
-        public System.Data.Entity.DbSet<WebApplication3.Models.MLabTest> MLabTests { get; set; }
+        public System.Data.Entity.DbSet<Ormer_PHC.Models.MLabTest> MLabTests { get; set; }
 
-        public System.Data.Entity.DbSet<WebApplication3.Models.MDisease> MDiseases { get; set; }
+        public System.Data.Entity.DbSet<Ormer_PHC.Models.MDisease> MDiseases { get; set; }
 
-        public System.Data.Entity.DbSet<WebApplication3.Models.PatientInfo> PatientInfoes { get; set; }
+        public System.Data.Entity.DbSet<Ormer_PHC.Models.PatientInfo> PatientInfoes { get; set; }
     }
 }
 
 #region Helpers
-namespace WebApplication3
+namespace Ormer_PHC
 {
     public static class IdentityHelper
     {

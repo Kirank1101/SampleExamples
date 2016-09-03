@@ -1,21 +1,21 @@
-namespace WebApplication3.Migrations
+namespace Ormer_PHC.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Data.Entity.ModelConfiguration;
     using System.Linq;
-    using WebApplication3.Models;
+    using Ormer_PHC.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<WebApplication3.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Ormer_PHC.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true ;
-            ContextKey = "WebApplication3.Models.ApplicationDbContext";
+            ContextKey = "Ormer_PHC.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(WebApplication3.Models.ApplicationDbContext context)
+        protected override void Seed(Ormer_PHC.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.Villages {
+namespace Ormer_PHC.Villages {
     public partial class Delete {
         /// <summary>
         /// form1 control.

@@ -1,9 +1,9 @@
-﻿<%@ Page Title="StateHCEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="WebApplication3.StateHC.Edit" %>
+﻿<%@ Page Title="StateHCEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="Ormer_PHC.StateHC.Edit" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.StateHC" DefaultMode="Edit" DataKeyNames="StateHCID"
+            ItemType="Ormer_PHC.Models.StateHC" DefaultMode="Edit" DataKeyNames="StateHCID"
             UpdateMethod="UpdateItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApplication3.Models
+namespace Ormer_PHC.Models
 {
     public class MBloodGroup
     {

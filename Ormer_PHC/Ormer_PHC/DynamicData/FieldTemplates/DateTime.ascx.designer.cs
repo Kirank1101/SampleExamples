@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3 {
+namespace Ormer_PHC {
     public partial class DateTimeField {
         protected global::System.Web.UI.WebControls.Literal Literal1;
     }

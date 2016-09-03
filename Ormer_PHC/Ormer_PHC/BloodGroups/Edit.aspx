@@ -1,9 +1,9 @@
-﻿<%@ Page Title="MBloodGroupEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="WebApplication3.BloodGroups.Edit" %>
+﻿<%@ Page Title="MBloodGroupEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="Ormer_PHC.BloodGroups.Edit" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.MBloodGroup" DefaultMode="Edit" DataKeyNames="MBloodGroupID"
+            ItemType="Ormer_PHC.Models.MBloodGroup" DefaultMode="Edit" DataKeyNames="MBloodGroupID"
             UpdateMethod="UpdateItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

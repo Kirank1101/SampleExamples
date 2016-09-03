@@ -1,10 +1,10 @@
-﻿<%@ Page Title="PrimaryHCSCDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="WebApplication3.PrimaryHCSCs.Delete" %>
+﻿<%@ Page Title="PrimaryHCSCDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="Ormer_PHC.PrimaryHCSCs.Delete" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <h3>Are you sure want to delete this PrimaryHCSC?</h3>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.PrimaryHCSC" DataKeyNames="PrimaryHCSCID"
+            ItemType="Ormer_PHC.Models.PrimaryHCSC" DataKeyNames="PrimaryHCSCID"
             DeleteMethod="DeleteItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

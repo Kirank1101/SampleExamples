@@ -1,9 +1,9 @@
-﻿<%@ Page Title="PatientInfoEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="WebApplication3.PatientInfoes.Edit" %>
+﻿<%@ Page Title="PatientInfoEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="Ormer_PHC.PatientInfoes.Edit" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.PatientInfo" DefaultMode="Edit" DataKeyNames="PatientID"
+            ItemType="Ormer_PHC.Models.PatientInfo" DefaultMode="Edit" DataKeyNames="PatientID"
             UpdateMethod="UpdateItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>
@@ -15,7 +15,7 @@
 					<asp:ValidationSummary runat="server" CssClass="alert alert-danger"  />                 
 							<asp:DynamicControl Mode="Edit" 
 								DataField="MBloodGroupID" 
-								DataTypeName="WebApplication3.Models.MBloodGroup" 
+								DataTypeName="Ormer_PHC.Models.MBloodGroup" 
 								DataTextField="BloodGroupName" 
 								DataValueField="MBloodGroupID" 
 								UIHint="ForeignKey" runat="server" />

@@ -1,10 +1,10 @@
-﻿<%@ Page Title="MLabTestDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="WebApplication3.MLabTests.Delete" %>
+﻿<%@ Page Title="MLabTestDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="Ormer_PHC.MLabTests.Delete" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <h3>Are you sure want to delete this MLabTest?</h3>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.MLabTest" DataKeyNames="MLabTestID"
+            ItemType="Ormer_PHC.Models.MLabTest" DataKeyNames="MLabTestID"
             DeleteMethod="DeleteItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

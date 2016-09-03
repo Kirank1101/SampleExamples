@@ -7,13 +7,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.Entity;
 using Microsoft.AspNet.FriendlyUrls.ModelBinding;
-using WebApplication3.Models;
+using Ormer_PHC.Models;
 
-namespace WebApplication3.Villages
+namespace Ormer_PHC.Villages
 {
     public partial class Delete : System.Web.UI.Page
     {
-		protected WebApplication3.Models.ApplicationDbContext _db = new WebApplication3.Models.ApplicationDbContext();
+		protected Ormer_PHC.Models.ApplicationDbContext _db = new Ormer_PHC.Models.ApplicationDbContext();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,7 +38,7 @@ namespace WebApplication3.Villages
 
         // This is the Select methd to selects a single Villages item with the id
         // USAGE: <asp:FormView SelectMethod="GetItem">
-        public WebApplication3.Models.Villages GetItem([FriendlyUrlSegmentsAttribute(0)]int? VillagesID)
+        public Ormer_PHC.Models.Villages GetItem([FriendlyUrlSegmentsAttribute(0)]int? VillagesID)
         {
             if (VillagesID == null)
             {

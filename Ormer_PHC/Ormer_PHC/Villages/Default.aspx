@@ -1,4 +1,4 @@
-﻿<%@ Page Title="VillagesList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="WebApplication3.Villages.Default" %>
+﻿<%@ Page Title="VillagesList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="Ormer_PHC.Villages.Default" %>
 <%@ Register TagPrefix="FriendlyUrls" Namespace="Microsoft.AspNet.FriendlyUrls" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <h2>Villages List</h2>
@@ -8,7 +8,7 @@
     <div>
         <asp:ListView id="ListView1" runat="server"
             DataKeyNames="VillagesID" 
-			ItemType="WebApplication3.Models.Villages"
+			ItemType="Ormer_PHC.Models.Villages"
             SelectMethod="GetData">
             <EmptyDataTemplate>
                 There are no entries found for Villages

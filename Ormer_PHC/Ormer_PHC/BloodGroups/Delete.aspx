@@ -1,10 +1,10 @@
-﻿<%@ Page Title="MBloodGroupDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="WebApplication3.BloodGroups.Delete" %>
+﻿<%@ Page Title="MBloodGroupDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="Ormer_PHC.BloodGroups.Delete" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <h3>Are you sure want to delete this MBloodGroup?</h3>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.MBloodGroup" DataKeyNames="MBloodGroupID"
+            ItemType="Ormer_PHC.Models.MBloodGroup" DataKeyNames="MBloodGroupID"
             DeleteMethod="DeleteItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

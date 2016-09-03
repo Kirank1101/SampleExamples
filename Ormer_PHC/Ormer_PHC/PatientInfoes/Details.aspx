@@ -1,10 +1,10 @@
-﻿<%@ Page Title="PatientInfo Details" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Details.aspx.cs" Inherits="WebApplication3.PatientInfoes.Details" %>
+﻿<%@ Page Title="PatientInfo Details" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Details.aspx.cs" Inherits="Ormer_PHC.PatientInfoes.Details" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
       
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.PatientInfo" DataKeyNames="PatientID"
+            ItemType="Ormer_PHC.Models.PatientInfo" DataKeyNames="PatientID"
             SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

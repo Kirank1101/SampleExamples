@@ -1,4 +1,4 @@
-﻿<%@ Page Title="MDiseaseList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="WebApplication3.MDiseases.Default" %>
+﻿<%@ Page Title="MDiseaseList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="Ormer_PHC.MDiseases.Default" %>
 <%@ Register TagPrefix="FriendlyUrls" Namespace="Microsoft.AspNet.FriendlyUrls" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <h2>MDiseases List</h2>
@@ -8,7 +8,7 @@
     <div>
         <asp:ListView id="ListView1" runat="server"
             DataKeyNames="MDiseaseID" 
-			ItemType="WebApplication3.Models.MDisease"
+			ItemType="Ormer_PHC.Models.MDisease"
             SelectMethod="GetData">
             <EmptyDataTemplate>
                 There are no entries found for MDiseases

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" CodeBehind="Boolean_Edit.ascx.cs" Inherits="WebApplication3.Boolean_EditField" %>
+﻿<%@ Control Language="C#" CodeBehind="Boolean_Edit.ascx.cs" Inherits="Ormer_PHC.Boolean_EditField" %>
 
 <div id="Div1" runat="server" class="form-group">
     <div class="col-sm-offset-2 col-sm-3">

@@ -1,10 +1,10 @@
-﻿<%@ Page Title="VillagesDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="WebApplication3.Villages.Delete" %>
+﻿<%@ Page Title="VillagesDelete" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Delete.aspx.cs" Inherits="Ormer_PHC.Villages.Delete" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <h3>Are you sure want to delete this Villages?</h3>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.Villages" DataKeyNames="VillagesID"
+            ItemType="Ormer_PHC.Models.Villages" DataKeyNames="VillagesID"
             DeleteMethod="DeleteItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

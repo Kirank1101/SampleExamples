@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.Routing;
 using Microsoft.AspNet.FriendlyUrls;
 
-namespace WebApplication3
+namespace Ormer_PHC
 {
     public static class RouteConfig
     {

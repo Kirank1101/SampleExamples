@@ -1,4 +1,4 @@
-﻿<%@ Page Title="MBloodGroupList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="WebApplication3.BloodGroups.Default" %>
+﻿<%@ Page Title="MBloodGroupList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="Ormer_PHC.BloodGroups.Default" %>
 <%@ Register TagPrefix="FriendlyUrls" Namespace="Microsoft.AspNet.FriendlyUrls" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <h2>BloodGroups List</h2>
@@ -8,7 +8,7 @@
     <div>
         <asp:ListView id="ListView1" runat="server"
             DataKeyNames="MBloodGroupID" 
-			ItemType="WebApplication3.Models.MBloodGroup"
+			ItemType="Ormer_PHC.Models.MBloodGroup"
             SelectMethod="GetData">
             <EmptyDataTemplate>
                 There are no entries found for BloodGroups

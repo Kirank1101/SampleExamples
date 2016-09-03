@@ -1,4 +1,4 @@
-﻿<%@ Page Title="MDrugsList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="WebApplication3.MDrugs.Default" %>
+﻿<%@ Page Title="MDrugsList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="Ormer_PHC.MDrugs.Default" %>
 <%@ Register TagPrefix="FriendlyUrls" Namespace="Microsoft.AspNet.FriendlyUrls" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <h2>MDrugs List</h2>
@@ -8,7 +8,7 @@
     <div>
         <asp:ListView id="ListView1" runat="server"
             DataKeyNames="MDrugID" 
-			ItemType="WebApplication3.Models.MDrugs"
+			ItemType="Ormer_PHC.Models.MDrugs"
             SelectMethod="GetData">
             <EmptyDataTemplate>
                 There are no entries found for MDrugs

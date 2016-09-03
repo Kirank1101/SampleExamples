@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
-namespace WebApplication3.Account
+namespace Ormer_PHC.Account
 {
     public partial class ManageLogins : System.Web.UI.Page
     {

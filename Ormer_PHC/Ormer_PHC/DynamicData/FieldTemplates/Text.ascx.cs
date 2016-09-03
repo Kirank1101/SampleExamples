@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebApplication3 {
+namespace Ormer_PHC {
     public partial class TextField : System.Web.DynamicData.FieldTemplateUserControl {
         private const int MAX_DISPLAYLENGTH_IN_LIST = 25;
     

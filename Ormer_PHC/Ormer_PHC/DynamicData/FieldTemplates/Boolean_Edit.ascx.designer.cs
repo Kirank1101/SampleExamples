@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3 {
+namespace Ormer_PHC {
     public partial class Boolean_EditField {
 		protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
         protected global::System.Web.UI.WebControls.Label Label1;

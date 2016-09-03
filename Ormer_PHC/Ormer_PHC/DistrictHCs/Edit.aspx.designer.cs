@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.DistrictHCs {
+namespace Ormer_PHC.DistrictHCs {
     public partial class Edit {
         
         /// <summary>

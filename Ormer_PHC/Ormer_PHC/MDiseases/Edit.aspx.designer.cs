@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.MDiseases {
+namespace Ormer_PHC.MDiseases {
     public partial class Edit {
         
         /// <summary>

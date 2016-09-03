@@ -1,10 +1,10 @@
-﻿<%@ Page Title="MBloodGroup Details" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Details.aspx.cs" Inherits="WebApplication3.BloodGroups.Details" %>
+﻿<%@ Page Title="MBloodGroup Details" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Details.aspx.cs" Inherits="Ormer_PHC.BloodGroups.Details" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
       
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.MBloodGroup" DataKeyNames="MBloodGroupID"
+            ItemType="Ormer_PHC.Models.MBloodGroup" DataKeyNames="MBloodGroupID"
             SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

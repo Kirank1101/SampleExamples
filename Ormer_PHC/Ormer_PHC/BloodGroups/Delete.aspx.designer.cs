@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.BloodGroups {
+namespace Ormer_PHC.BloodGroups {
     public partial class Delete {
         /// <summary>
         /// form1 control.

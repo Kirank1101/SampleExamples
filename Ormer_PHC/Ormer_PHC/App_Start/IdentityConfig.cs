@@ -6,9 +6,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using WebApplication3.Models;
+using Ormer_PHC.Models;
 
-namespace WebApplication3
+namespace Ormer_PHC
 {
     public class EmailService : IIdentityMessageService
     {

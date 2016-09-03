@@ -1,9 +1,9 @@
-﻿<%@ Page Title="PatientInfoInsert" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Insert.aspx.cs" Inherits="WebApplication3.PatientInfoes.Insert" %>
+﻿<%@ Page Title="PatientInfoInsert" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Insert.aspx.cs" Inherits="Ormer_PHC.PatientInfoes.Insert" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.PatientInfo" DefaultMode="Insert"
+            ItemType="Ormer_PHC.Models.PatientInfo" DefaultMode="Insert"
             InsertItemPosition="FirstItem" InsertMethod="InsertItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <InsertItemTemplate>
@@ -12,7 +12,7 @@
 		        <asp:ValidationSummary runat="server" CssClass="alert alert-danger" />
 							<asp:DynamicControl Mode="Insert" 
 								DataField="MBloodGroupID" 
-								DataTypeName="WebApplication3.Models.MBloodGroup" 
+								DataTypeName="Ormer_PHC.Models.MBloodGroup" 
 								DataTextField="BloodGroupName" 
 								DataValueField="MBloodGroupID" 
 								UIHint="ForeignKey" runat="server" />

@@ -1,9 +1,9 @@
-﻿<%@ Page Title="TalukHCEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="WebApplication3.TalukHCs.Edit" %>
+﻿<%@ Page Title="TalukHCEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="Ormer_PHC.TalukHCs.Edit" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.TalukHC" DefaultMode="Edit" DataKeyNames="TalukHCID"
+            ItemType="Ormer_PHC.Models.TalukHC" DefaultMode="Edit" DataKeyNames="TalukHCID"
             UpdateMethod="UpdateItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>
@@ -15,7 +15,7 @@
 					<asp:ValidationSummary runat="server" CssClass="alert alert-danger"  />                 
 							<asp:DynamicControl Mode="Edit" 
 								DataField="DistricHCID" 
-								DataTypeName="WebApplication3.Models.DistrictHC" 
+								DataTypeName="Ormer_PHC.Models.DistrictHC" 
 								DataTextField="Name" 
 								DataValueField="DistricHCID" 
 								UIHint="ForeignKey" runat="server" />

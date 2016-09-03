@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.PrimaryHCs {
+namespace Ormer_PHC.PrimaryHCs {
     public partial class Default {
         /// <summary>
         /// form1 control.

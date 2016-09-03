@@ -1,10 +1,10 @@
-﻿<%@ Page Title="DistrictHC Details" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Details.aspx.cs" Inherits="WebApplication3.DistrictHCs.Details" %>
+﻿<%@ Page Title="DistrictHC Details" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Details.aspx.cs" Inherits="Ormer_PHC.DistrictHCs.Details" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
       
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.DistrictHC" DataKeyNames="DistricHCID"
+            ItemType="Ormer_PHC.Models.DistrictHC" DataKeyNames="DistricHCID"
             SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

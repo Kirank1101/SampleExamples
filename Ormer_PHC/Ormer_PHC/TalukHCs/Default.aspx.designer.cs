@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.TalukHCs {
+namespace Ormer_PHC.TalukHCs {
     public partial class Default {
         /// <summary>
         /// form1 control.

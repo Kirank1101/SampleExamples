@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication3.MLabTests {
+namespace Ormer_PHC.MLabTests {
     public partial class Details {
         /// <summary>
         /// form1 control.

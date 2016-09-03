@@ -1,9 +1,9 @@
-﻿<%@ Page Title="MDiseaseEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="WebApplication3.MDiseases.Edit" %>
+﻿<%@ Page Title="MDiseaseEdit" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Edit.aspx.cs" Inherits="Ormer_PHC.MDiseases.Edit" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div>
 		<p>&nbsp;</p>
         <asp:FormView runat="server"
-            ItemType="WebApplication3.Models.MDisease" DefaultMode="Edit" DataKeyNames="MDiseaseID"
+            ItemType="Ormer_PHC.Models.MDisease" DefaultMode="Edit" DataKeyNames="MDiseaseID"
             UpdateMethod="UpdateItem" SelectMethod="GetItem"
             OnItemCommand="ItemCommand" RenderOuterTable="false">
             <EmptyDataTemplate>

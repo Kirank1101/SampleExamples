@@ -1,4 +1,4 @@
-﻿<%@ Page Title="PrimaryHCList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="WebApplication3.PrimaryHCs.Default" %>
+﻿<%@ Page Title="PrimaryHCList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="Ormer_PHC.PrimaryHCs.Default" %>
 <%@ Register TagPrefix="FriendlyUrls" Namespace="Microsoft.AspNet.FriendlyUrls" %>
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <h2>PrimaryHCs List</h2>
@@ -8,7 +8,7 @@
     <div>
         <asp:ListView id="ListView1" runat="server"
             DataKeyNames="PrimaryHCID" 
-			ItemType="WebApplication3.Models.PrimaryHC"
+			ItemType="Ormer_PHC.Models.PrimaryHC"
             SelectMethod="GetData">
             <EmptyDataTemplate>
                 There are no entries found for PrimaryHCs

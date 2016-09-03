@@ -7,12 +7,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.Entity;
 using Microsoft.AspNet.FriendlyUrls.ModelBinding;
-using WebApplication3.Models;
-namespace WebApplication3.PrimaryHCs
+using Ormer_PHC.Models;
+namespace Ormer_PHC.PrimaryHCs
 {
     public partial class Edit : System.Web.UI.Page
     {
-		protected WebApplication3.Models.ApplicationDbContext _db = new WebApplication3.Models.ApplicationDbContext();
+		protected Ormer_PHC.Models.ApplicationDbContext _db = new Ormer_PHC.Models.ApplicationDbContext();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,7 +46,7 @@ namespace WebApplication3.PrimaryHCs
 
         // This is the Select method to selects a single PrimaryHC item with the id
         // USAGE: <asp:FormView SelectMethod="GetItem">
-        public WebApplication3.Models.PrimaryHC GetItem([FriendlyUrlSegmentsAttribute(0)]int? PrimaryHCID)
+        public Ormer_PHC.Models.PrimaryHC GetItem([FriendlyUrlSegmentsAttribute(0)]int? PrimaryHCID)
         {
             if (PrimaryHCID == null)
             {
