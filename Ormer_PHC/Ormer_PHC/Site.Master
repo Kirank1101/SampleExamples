@@ -82,8 +82,21 @@
             </div>
         </div>
         <div class="container body-content">
+          
+             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                
+               
+
+
+                   
+
             </asp:ContentPlaceHolder>
+                         </ContentTemplate>
+
+
+                </asp:UpdatePanel>
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - Primary Health Centre Application</p>
