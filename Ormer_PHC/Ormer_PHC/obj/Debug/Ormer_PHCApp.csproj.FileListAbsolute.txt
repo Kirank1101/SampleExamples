@@ -183,3 +183,4 @@ C:\Users\kirank\Documents\GitHub\SampleExamples\Ormer_PHC\Ormer_PHC\obj\Debug\Or
 C:\Users\kirank\Documents\GitHub\SampleExamples\Ormer_PHC\Ormer_PHC\obj\Debug\Ormer_PHC.Migrations.ApplicationDbContext4.resources
 C:\Users\kirank\Documents\GitHub\SampleExamples\Ormer_PHC\Ormer_PHC\obj\Debug\Ormer_PHC.dll
 C:\Users\kirank\Documents\GitHub\SampleExamples\Ormer_PHC\Ormer_PHC\obj\Debug\Ormer_PHC.pdb
+C:\Users\kirank\Documents\GitHub\SampleExamples\Ormer_PHC\Ormer_PHC\obj\Debug\Ormer_PHCApp.csprojResolveAssemblyReference.cache

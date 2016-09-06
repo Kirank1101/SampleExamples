@@ -5,6 +5,15 @@
     <p>
         <asp:HyperLink runat="server" NavigateUrl="Insert" Text="Create new" />
     </p>
+
+
+    <br /><br />
+<asp:Label runat="server" Text="Pateint Name :" />
+
+    <asp:TextBox ID="txtPatientName" runat="server"  ></asp:TextBox><asp:Button ID="btnSearch" runat="server" Text="Search: " />
+
+
+
     <div>
         <asp:ListView id="ListView1" runat="server"
             DataKeyNames="PatientID" 
