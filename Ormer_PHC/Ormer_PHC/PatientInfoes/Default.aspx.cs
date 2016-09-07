@@ -28,6 +28,15 @@ namespace Ormer_PHC.PatientInfoes
         public IQueryable<PatientInfo> GetData([Control] string txtPatientName)
         {
             var query = _db.PatientInfoes.Include(m => m.bloodgroupinfos);
+            int cnt = 0;
+
+            cnt = _db.PatientInfoes.Count();
+
+            if (cnt == 0)
+            {
+                txtPatientName = string.Empty;
+                divpatientsearch.Visible = false;
+            }
             if (txtPatientName != null)
             {
                 query = query.Where(s => s.PatientName.Contains(txtPatientName));

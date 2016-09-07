@@ -12,27 +12,29 @@
 
     <br />
     <br />
-    <table>
-        <tr>
-            <td>
-                <asp:Label runat="server" Text="Pateint Name :" />
-            </td>
-            <td style="width: 280px">
-                <div class="form-horizontal">
-                    <asp:TextBox ID="txtPatientName" runat="server" CssClass="form-control"></asp:TextBox>
-                </div>
-            </td>
+    <div id="divpatientsearch" runat="server">
+        <table>
 
-            <td>
-                <div class="form-group">
-                    <div class="col-sm-offset-1 col-sm-10">
-                        <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-default" />
+            <tr>
+                <td>
+                    <asp:Label runat="server" Text="Pateint Name :" />
+                </td>
+                <td style="width: 280px">
+                    <div class="form-horizontal">
+                        <asp:TextBox ID="txtPatientName" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
-                </div>
-            </td>
-        </tr>
-    </table>
+                </td>
 
+                <td>
+                    <div class="form-group">
+                        <div class="col-sm-offset-1 col-sm-10">
+                            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-default" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 
 
 

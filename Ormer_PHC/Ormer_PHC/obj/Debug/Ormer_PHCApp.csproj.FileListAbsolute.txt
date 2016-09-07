@@ -106,7 +106,6 @@ C:\Users\Nagavardhan\Documents\GitHub\SampleExamples\Ormer_PHC\Ormer_PHC\bin\Mic
 C:\Users\Nagavardhan\Documents\GitHub\SampleExamples\Ormer_PHC\Ormer_PHC\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Nagavardhan\Documents\GitHub\SampleExamples\Ormer_PHC\Ormer_PHC\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Nagavardhan\Documents\GitHub\SampleExamples\Ormer_PHC\Ormer_PHC\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\Nagavardhan\Documents\GitHub\SampleExamples\Ormer_PHC\Ormer_PHC\obj\Debug\Ormer_PHCApp.csprojResolveAssemblyReference.cache
 C:\Users\Nagavardhan\Documents\GitHub\SampleExamples\Ormer_PHC\Ormer_PHC\obj\Debug\Ormer_PHCApp.csproj.GenerateResource.Cache
 C:\Users\kirank\Documents\GitHub\SampleExamples\Ormer_PHC\Ormer_PHC\bin\Antlr3.Runtime.dll
 C:\Users\kirank\Documents\GitHub\SampleExamples\Ormer_PHC\Ormer_PHC\bin\AspNet.ScriptManager.bootstrap.dll
