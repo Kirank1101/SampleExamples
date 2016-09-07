@@ -32,6 +32,10 @@ namespace Ormer_PHC.PatientInfoes
 
             cnt = _db.PatientInfoes.Count();
 
+            IQueryable<PatientInfo> iqp = _db.PatientInfoes.Select(t=>new PatientInfo{
+                PatientName=t.PatientName,
+                PatientAge=t.PatientAge
+            });
             if (cnt == 0)
             {
                 txtPatientName = string.Empty;

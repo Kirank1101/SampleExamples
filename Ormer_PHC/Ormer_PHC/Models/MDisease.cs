@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ormer_PHC.Models
 {
+
     public class MDisease
     {
 

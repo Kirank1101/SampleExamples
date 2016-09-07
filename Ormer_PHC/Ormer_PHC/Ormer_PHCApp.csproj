@@ -220,6 +220,7 @@
     <Content Include="PatientInfoes\Details.aspx" />
     <Content Include="PatientInfoes\Edit.aspx" />
     <Content Include="PatientInfoes\Insert.aspx" />
+    <Content Include="patientprescription.aspx" />
     <Content Include="PrimaryHCSCs\Default.aspx" />
     <Content Include="PrimaryHCSCs\Delete.aspx" />
     <Content Include="PrimaryHCSCs\Details.aspx" />
@@ -807,6 +808,13 @@
     </Compile>
     <Compile Include="PatientInfoes\Insert.aspx.designer.cs">
       <DependentUpon>Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="patientprescription.aspx.cs">
+      <DependentUpon>patientprescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="patientprescription.aspx.designer.cs">
+      <DependentUpon>patientprescription.aspx</DependentUpon>
     </Compile>
     <Compile Include="PrimaryHCSCs\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
