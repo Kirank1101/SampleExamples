@@ -4,6 +4,7 @@
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <style>
         /*Here I will add some css for looks good*/
+
         .myGrid {
             border: 1px solid #ddd;
             margin: 15px;
@@ -19,22 +20,20 @@
         .header {
             overflow: hidden;
             position: relative;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #ff0000;
             height: 30px;
         }
 
             .header th {
-                color: #222;
-                font-weight: normal;
+                color: #428bca;
+                font-weight: bold;
                 line-height: 40px;
                 text-align: left;
                 /* text-shadow: 0 1px #FFFFFF; */
                 white-space: nowrap;
-                border-right: 1px solid #ddd;
+                border-right: none;
                 border-bottom: 2px solid #ddd;
                 padding: 0px 15px 0px 15px;
-                -webkit-border-radius: 1px;
-                -moz-border-radius: 1px;
             }
 
         .trow1 {
@@ -160,17 +159,16 @@
                         <td>
                             <div>
                                 <asp:GridView ID="myGridview" runat="server" AutoGenerateColumns="false"
-                                     CellPadding="10" CellSpacing="0"
-                                    ShowFooter="true" 
+                                     CellPadding="10" CellSpacing="0" ShowFooter="true" OnRowCommand="myGridview_RowCommand"
                                     CssClass="myGrid" HeaderStyle-CssClass="header" RowStyle-CssClass="trow1"
                                     AlternatingRowStyle-CssClass="trow2">
 
                                     <Columns>
-                                        <asp:TemplateField>
+                                        <asp:TemplateField >
                                             <HeaderTemplate>Drug Name</HeaderTemplate>
                                             <ItemTemplate><%#Eval("DrugName") %></ItemTemplate>
                                             <FooterTemplate>
-                                                <asp:DropDownList ID="ddldrugname" runat="server" AutoPostBack="true">
+                                                <asp:DropDownList ID="ddldrugname" runat="server"   CssClass="form-control">
                                                     <asp:ListItem Text="Select Drugs" Value="0"></asp:ListItem>
                                                 </asp:DropDownList><asp:RequiredFieldValidator ID="rfC" runat="server" ErrorMessage="*"
                                                     ForeColor="Red" Display="Dynamic" ValidationGroup="Add" ControlToValidate="ddldrugname" InitialValue="0"></asp:RequiredFieldValidator>
@@ -181,7 +179,7 @@
                                             <HeaderTemplate>Quantity</HeaderTemplate>
                                             <ItemTemplate><%#Eval("Quantity") %></ItemTemplate>
                                             <FooterTemplate>
-                                                <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="rfCN" runat="server" ErrorMessage="*"
+                                                <asp:TextBox ID="txtQuantity" runat="server" CssClass="form-control"></asp:TextBox><asp:RequiredFieldValidator ID="rfCN" runat="server" ErrorMessage="*"
                                                     ForeColor="Red" Display="Dynamic" ValidationGroup="Add" ControlToValidate="txtQuantity"></asp:RequiredFieldValidator>
                                             </FooterTemplate>
                                         </asp:TemplateField>
@@ -189,7 +187,7 @@
                                             <HeaderTemplate>Dosage</HeaderTemplate>
                                             <ItemTemplate><%#Eval("Dosage") %></ItemTemplate>
                                             <FooterTemplate>
-                                                <asp:TextBox ID="txtDosage" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="rfDG" runat="server" ErrorMessage="*"
+                                                <asp:TextBox ID="txtDosage" runat="server" CssClass="form-control"></asp:TextBox><asp:RequiredFieldValidator ID="rfDG" runat="server" ErrorMessage="*"
                                                     ForeColor="Red" Display="Dynamic" ValidationGroup="Add" ControlToValidate="txtDosage"></asp:RequiredFieldValidator>
                                             </FooterTemplate>
                                         </asp:TemplateField>
@@ -202,7 +200,7 @@
                         <asp:LinkButton ID="lbDelete" runat="server" CommandName="Delete">Delete</asp:LinkButton>
                                             </ItemTemplate>
                                             <FooterTemplate>
-                                                <asp:Button ID="btnInsert" runat="server" Text="Save" CommandName="Insert" ValidationGroup="Add" />
+                                                <asp:Button ID="btnInsert" runat="server" Text="Save" CommandName="Insert" ValidationGroup="Add"  CssClass="btn btn-default" />
                                             </FooterTemplate>
                                         </asp:TemplateField>
                                     </Columns>

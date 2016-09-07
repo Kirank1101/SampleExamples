@@ -23,10 +23,14 @@ namespace Ormer_PHC
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<MDisease> lst = (from c in _db.MDiseases select c).ToList();
-            ddlDisease.DataSource = lst;
-            ddlDisease.DataBind();
-            BindGridview();
+            if (!IsPostBack)
+            {
+                ViewstateDrugs = null;
+                List<MDisease> lst = (from c in _db.MDiseases select c).ToList();
+                ddlDisease.DataSource = lst;
+                ddlDisease.DataBind();
+                BindGridview();
+            }
         }
         protected void BindDrugName(DropDownList ddldrugname, List<MDisease> Drugs)
         {
@@ -49,11 +53,11 @@ namespace Ormer_PHC
 
         private void BindGridview()
         {
+            
             List<patientDrugs> allpatientDrugs = null;
-
-            if (allpatientDrugs == null || allpatientDrugs.Count == 0)
+            allpatientDrugs = ViewstateDrugs;
+            if (allpatientDrugs.Count == 0)
             {
-                //trick to show footer when there is no data in the gridview
                 allpatientDrugs = new System.Collections.Generic.List<patientDrugs>();
                 allpatientDrugs.Add(new patientDrugs());
                 myGridview.DataSource = allpatientDrugs;
@@ -74,8 +78,65 @@ namespace Ormer_PHC
             }
 
         }
+        protected void myGridview_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            //Insert new contact
+            if (e.CommandName == "Insert")
+            {
+                Page.Validate("Add");
+                if (Page.IsValid)
+                {
+                    var fRow = myGridview.FooterRow;
+                    TextBox txtQuantity = (TextBox)fRow.FindControl("txtQuantity");
+                    TextBox txtDosage = (TextBox)fRow.FindControl("txtDosage");
+                    DropDownList ddldrugname = (DropDownList)fRow.FindControl("ddldrugname");
+                    //using (MyDatabaseEntities dc = new MyDatabaseEntities())
+                    //{
+
+                    //    //Here in this example we have done a little mistake // class name and page name is Same (contact) 
+                    //    // We will remove contact page , as its not in use
+
+                    //    dc.Contacts.Add(new Contact
+                    //    {
+                    //        ContactPerson = txtContactPerson.Text.Trim(),
+                    //        ContactNo = txtContactNo.Text.Trim(),
+                    //        CountryID = Convert.ToInt32(ddCountry.SelectedValue),
+                    //        StateID = Convert.ToInt32(ddState.SelectedValue)
+                    //    });
+                    //    dc.SaveChanges();
+                    //    PopulateContacts();
+                    //}
+
+                    List<patientDrugs> lstpd = new System.Collections.Generic.List<patientDrugs>();
+                    lstpd = ViewstateDrugs;
+                    patientDrugs pd = new patientDrugs();
+                    pd.DrugName = ddldrugname.SelectedItem.Text;
+                    pd.Dosage = txtDosage.Text;
+                    pd.Quantity = Convert.ToInt32(txtQuantity.Text);
+                    lstpd.Add(pd);
+                    ViewstateDrugs = lstpd;
+                    BindGridview();
+
+                }
+            }
+        }
+        const string VSdrugs = "viewStateDrugs";
+        public List<patientDrugs> ViewstateDrugs
+        {
+            get
+            {
+                if (ViewState[VSdrugs] == null)
+                    ViewState[VSdrugs] = new List<patientDrugs>();
+                return (List<patientDrugs>)ViewState[VSdrugs];
+            }
+            set
+            {
+                ViewState[VSdrugs] = value;
+            }
+        }
 
     }
+    [Serializable]
     public class patientDrugs
     {
         public string DrugName { get; set; }
