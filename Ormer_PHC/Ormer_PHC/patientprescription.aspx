@@ -336,34 +336,24 @@
                                 <LayoutTemplate>
 
                                     <table class="table">
-
                                         <tr>
-
                                             <th style="color: #428bca">Delete?
                                             </th>
-
                                             <th style="color: #428bca">AutoId
                                             </th>
-
                                             <th style="color: #428bca">First Name
                                             </th>
-
                                             <th style="color: #428bca">Last Name
                                             </th>
-
                                             <th style="color: #428bca">Age
                                             </th>
-
                                             <th style="color: #428bca">Active
                                             </th>
-
                                             <th style="color: #428bca">Edit
                                             </th>
                                         </tr>
-
                                         <asp:PlaceHolder ID="itemPlaceHolder1" runat="server"></asp:PlaceHolder>
                                     </table>
-
                                     <asp:DataPager PageSize="5" runat="server">
                                         <Fields>
                                             <asp:NextPreviousPagerField ShowLastPageButton="False" ShowNextPageButton="False" ButtonType="Button" ButtonCssClass="btn" />
@@ -373,134 +363,81 @@
                                     </asp:DataPager>
                                 </LayoutTemplate>
                                 <ItemTemplate>
-
                                     <tr>
-
                                         <td>
-
                                             <span onclick="return confirm('Are you sure to delete?')">
-
                                                 <asp:LinkButton ID="lnkDel" runat="server" Text="Delete?" ForeColor="Red" CommandName="Delete" />
                                             </span>
-
                                         </td>
-
                                         <td>
-
                                             <%# Eval("AutoID") %>
-
                                         </td>
-
                                         <td>
-
                                             <%# Eval("FirstName") %>
                                         </td>
-
                                         <td>
-
                                             <%# Eval("LastName") %>
                                         </td>
-
                                         <td>
-
                                             <%#Eval("Age") %>
                                         </td>
-
                                         <td>
-
                                             <%# Eval("Active") %>
                                         </td>
-
                                         <td>
-
                                             <asp:LinkButton ID="lnkEdit" runat="server" Text="Edit" CommandName="Edit" />
                                         </td>
                                     </tr>
-
-
                                 </ItemTemplate>
                                 <EditItemTemplate>
-
                                     <tr style="background-color: #efefef;">
-
                                         <td colspan="7">First name:
-                                            <asp:TextBox ID="txtEFName" runat="server" Text='<%# Eval("FirstName") %>' />
-
+                                <asp:TextBox ID="txtEFName" runat="server" Text='<%# Eval("FirstName") %>' />
                                             <br />
-
                                             Last name:
-                                            <asp:TextBox ID="txtELName" runat="server" Text='<%#Eval("LastName") %>' />
-
+                                <asp:TextBox ID="txtELName" runat="server" Text='<%#Eval("LastName") %>' />
                                             <br />
-
                                             Last name:
-                                            <asp:TextBox ID="txtEAge" runat="server" Text='<%# Eval("Age") %>' Columns="3" />
-
+                                <asp:TextBox ID="txtEAge" runat="server" Text='<%# Eval("Age") %>' Columns="3" />
                                             <br />
-
                                             Active:
-                                            <asp:DropDownList ID="dropEACtive" runat="server" SelectedValue='<%# Eval("Active") %>'>
-
-                                                <asp:ListItem Text="Yes" Value="True" />
-
-                                                <asp:ListItem Text="No" Value="False" />
-                                            </asp:DropDownList>
-
+                                <asp:DropDownList ID="dropEACtive" runat="server" SelectedValue='<%# Eval("Active") %>'>
+                                    <asp:ListItem Text="Yes" Value="True" />
+                                    <asp:ListItem Text="No" Value="False" />
+                                </asp:DropDownList>
                                             <asp:LinkButton ID="lnkUpdate" runat="server" Text="Update" CommandName="Update" />
-
                                             <asp:LinkButton ID="lnkCancel" runat="server" Text="Cancel" CommandName="Cancel" />
                                         </td>
                                     </tr>
-
-
-
                                 </EditItemTemplate>
                                 <InsertItemTemplate>
-
                                     <tr style="background-color: yellow;">
-
                                         <td>&nbsp;
                                         </td>
-
                                         <td>&nbsp;
                                         </td>
-
                                         <td>
-
                                             <asp:TextBox ID="txtFName" runat="server" />
                                         </td>
-
                                         <td>
-
                                             <asp:TextBox ID="txtLName" runat="server" />
                                         </td>
-
                                         <td>
-
                                             <asp:TextBox ID="txtAge" runat="server" Columns="3" />
                                         </td>
-
                                         <td>
-
                                             <asp:DropDownList ID="dropActive" runat="server">
-
                                                 <asp:ListItem Text="Yes" Value="True" />
-
                                                 <asp:ListItem Text="No" Value="False" />
-
                                             </asp:DropDownList>
                                         </td>
-
                                         <td>
-
                                             <span onclick="return confirm('Are you sure to insert?')">
-
                                                 <asp:LinkButton ID="lnkInser" runat="server" Text="Insert" CommandName="Insert" />
                                             </span>
                                         </td>
                                     </tr>
                                 </InsertItemTemplate>
-
                             </asp:ListView>
                         </td>
                     </tr>

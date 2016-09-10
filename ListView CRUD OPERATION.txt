@@ -1,0 +1,215 @@
+<asp:ListView ID="ListView1" runat="server" ItemPlaceholderID="itemPlaceHolder1"
+    OnItemEditing="EditRecord" OnItemCanceling="CancelEditRecord" DataKeyNames="AutoId"
+    OnItemInserting="InsertRecord" OnItemUpdating="UpdateRecord" InsertItemPosition="LastItem"
+    OnItemDeleting="DeleteRecord">
+    <EmptyDataTemplate>
+        There are no entries found for MDrugs
+    </EmptyDataTemplate>
+    <LayoutTemplate>
+
+        <table class="table">
+            <tr>
+                <th style="color: #428bca">Delete?
+                </th>
+                <th style="color: #428bca">AutoId
+                </th>
+                <th style="color: #428bca">First Name
+                </th>
+                <th style="color: #428bca">Last Name
+                </th>
+                <th style="color: #428bca">Age
+                </th>
+                <th style="color: #428bca">Active
+                </th>
+                <th style="color: #428bca">Edit
+                </th>
+            </tr>
+            <asp:PlaceHolder ID="itemPlaceHolder1" runat="server"></asp:PlaceHolder>
+        </table>
+        <asp:DataPager PageSize="5" runat="server">
+            <Fields>
+                <asp:NextPreviousPagerField ShowLastPageButton="False" ShowNextPageButton="False" ButtonType="Button" ButtonCssClass="btn" />
+                <asp:NumericPagerField ButtonType="Button" NumericButtonCssClass="btn" CurrentPageLabelCssClass="btn disabled" NextPreviousButtonCssClass="btn" />
+                <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowPreviousPageButton="False" ButtonType="Button" ButtonCssClass="btn" />
+            </Fields>
+        </asp:DataPager>
+    </LayoutTemplate>
+    <ItemTemplate>
+        <tr>
+            <td>
+                <span onclick="return confirm('Are you sure to delete?')">
+                    <asp:LinkButton ID="lnkDel" runat="server" Text="Delete?" ForeColor="Red" CommandName="Delete" />
+                </span>
+            </td>
+            <td>
+                <%# Eval("AutoID") %>
+            </td>
+            <td>
+                <%# Eval("FirstName") %>
+            </td>
+            <td>
+                <%# Eval("LastName") %>
+            </td>
+            <td>
+                <%#Eval("Age") %>
+            </td>
+            <td>
+                <%# Eval("Active") %>
+            </td>
+            <td>
+                <asp:LinkButton ID="lnkEdit" runat="server" Text="Edit" CommandName="Edit" />
+            </td>
+        </tr>
+    </ItemTemplate>
+    <EditItemTemplate>
+        <tr style="background-color: #efefef;">
+            <td colspan="7">First name:
+                <asp:TextBox ID="txtEFName" runat="server" Text='<%# Eval("FirstName") %>' />
+                <br />
+                Last name:
+                <asp:TextBox ID="txtELName" runat="server" Text='<%#Eval("LastName") %>' />
+                <br />
+                Last name:
+                <asp:TextBox ID="txtEAge" runat="server" Text='<%# Eval("Age") %>' Columns="3" />
+                <br />
+                Active:
+                <asp:DropDownList ID="dropEACtive" runat="server" SelectedValue='<%# Eval("Active") %>'>
+                    <asp:ListItem Text="Yes" Value="True" />
+                    <asp:ListItem Text="No" Value="False" />
+                </asp:DropDownList>
+                <asp:LinkButton ID="lnkUpdate" runat="server" Text="Update" CommandName="Update" />
+                <asp:LinkButton ID="lnkCancel" runat="server" Text="Cancel" CommandName="Cancel" />
+            </td>
+        </tr>
+    </EditItemTemplate>
+    <InsertItemTemplate>
+        <tr style="background-color: yellow;">
+            <td>&nbsp;
+            </td>
+            <td>&nbsp;
+            </td>
+            <td>
+                <asp:TextBox ID="txtFName" runat="server" />
+            </td>
+            <td>
+                <asp:TextBox ID="txtLName" runat="server" />
+            </td>
+            <td>
+                <asp:TextBox ID="txtAge" runat="server" Columns="3" />
+            </td>
+            <td>
+                <asp:DropDownList ID="dropActive" runat="server">
+                    <asp:ListItem Text="Yes" Value="True" />
+                    <asp:ListItem Text="No" Value="False" />
+                </asp:DropDownList>
+            </td>
+            <td>
+                <span onclick="return confirm('Are you sure to insert?')">
+                    <asp:LinkButton ID="lnkInser" runat="server" Text="Insert" CommandName="Insert" />
+                </span>
+            </td>
+        </tr>
+    </InsertItemTemplate>
+</asp:ListView>
+
+public List<test> Viewstatetest
+        {
+            get
+            {
+                if (ViewState[VStest] == null)
+                    ViewState[VStest] = new List<test>();
+                return (List<test>)ViewState[VStest];
+            }
+            set
+            {
+                ViewState[VSdrugs] = value;
+            }
+        }
+protected void InsertRecord(object sender, ListViewInsertEventArgs e)
+        {
+            ListViewItem item = e.Item;
+            TextBox tF = (TextBox)item.FindControl("txtFName");
+            TextBox tL = (TextBox)item.FindControl("txtLName");
+            TextBox tA = (TextBox)item.FindControl("txtAge");
+            DropDownList dropEA = (DropDownList)item.FindControl("dropActive");
+
+            List<test> lstvst = null;
+            lstvst = Viewstatetest;
+            test tst = new test();
+
+            tst.AutoID = lstvst.Count+1;
+            tst.FirstName = tF.Text;
+            tst.LastName = tL.Text;
+            tst.Age = tA.Text;
+            tst.Active = dropEA.SelectedValue;
+            lstvst.Add(tst);
+            Viewstatetest = lstvst;
+            lblMessage.Text = "Record inserted successfully !";
+            this.PopulateData();
+
+        }
+protected void EditRecord(object sender, ListViewEditEventArgs e)
+        {
+            ListView1.EditIndex = e.NewEditIndex;
+            this.PopulateData();
+        }
+protected void UpdateRecord(object sender, ListViewUpdateEventArgs e)
+        {
+            int autoId = int.Parse(ListView1.DataKeys[e.ItemIndex].Value.ToString());
+            ListViewItem item = ListView1.Items[e.ItemIndex];
+            TextBox tF = (TextBox)item.FindControl("txtEFName");
+            TextBox tL = (TextBox)item.FindControl("txtELName");
+            TextBox tA = (TextBox)item.FindControl("txtEAge");
+            DropDownList dropEA = (DropDownList)item.FindControl("dropEActive");
+
+            List<test> lstvst = null;
+            lstvst = Viewstatetest;
+
+            test tst = lstvst.Where(t => t.AutoID == autoId).SingleOrDefault();
+            tst.FirstName = tF.Text;
+            tst.LastName = tL.Text;
+            tst.Age = tA.Text;
+            tst.Active = dropEA.SelectedValue;
+
+            Viewstatetest = lstvst;
+
+            lblMessage.Text = "Record updated successfully !";
+            ListView1.EditIndex = -1;
+            // repopulate the data
+            this.PopulateData();
+        }
+protected void CancelEditRecord(object sender, ListViewCancelEventArgs e)
+        {
+
+            ListView1.EditIndex = -1;
+            this.PopulateData();
+        }
+protected void DeleteRecord(object sender, ListViewDeleteEventArgs e)
+        {
+
+            int autoid = int.Parse(ListView1.DataKeys[e.ItemIndex].Value.ToString());
+            List<test> lstvst = null;
+            lstvst = Viewstatetest;
+            test tst = lstvst.Where(t => t.AutoID == autoid).SingleOrDefault();
+            lstvst.Remove(tst);
+            Viewstatetest = lstvst;
+            lblMessage.Text = "Record delete successfully !";
+            // repopulate the data
+            this.PopulateData();
+        }
+private void PopulateData()
+        {
+            List<test> lstvst = null;
+            lstvst = Viewstatetest;
+            ListView1.DataSource = lstvst;
+            ListView1.DataBind();
+        }
+
+
+    [Serializable]
+    public class patientDrugs
+    {
+        public string DrugName { get; set; }
+        public int Quantity { get; set; }
+        public string Dosage { get; set; }
+    }
