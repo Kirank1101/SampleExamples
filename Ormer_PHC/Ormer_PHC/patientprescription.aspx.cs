@@ -30,8 +30,20 @@ namespace Ormer_PHC
                 ddlDisease.DataSource = lst;
                 ddlDisease.DataBind();
                 BindGridview();
+                PopulateData();
             }
         }
+
+        //private void BINDLISTVIEW()
+        //{
+        //    labtest m = new labtest();
+        //    m.LabTest = "twewe";
+        //    m.Result = "sdf";
+        //    List<labtest> lt = new System.Collections.Generic.List<labtest>();
+        //    lt.Add(m);
+        //    ListView2.DataSource = lt;
+        //    ListView2.DataBind();
+        //}
         protected void BindDrugName(DropDownList ddldrugname, List<MDisease> Drugs)
         {
             ddldrugname.Items.Clear();
@@ -53,7 +65,7 @@ namespace Ormer_PHC
 
         private void BindGridview()
         {
-            
+
             List<patientDrugs> allpatientDrugs = null;
             allpatientDrugs = ViewstateDrugs;
             if (allpatientDrugs.Count == 0)
@@ -135,6 +147,100 @@ namespace Ormer_PHC
             }
         }
 
+        const string VStest = "test";
+        public List<test> Viewstatetest
+        {
+            get
+            {
+                if (ViewState[VStest] == null)
+                    ViewState[VStest] = new List<test>();
+                return (List<test>)ViewState[VStest];
+            }
+            set
+            {
+                ViewState[VSdrugs] = value;
+            }
+        }
+        protected void InsertRecord(object sender, ListViewInsertEventArgs e)
+        {
+            ListViewItem item = e.Item;
+            TextBox tF = (TextBox)item.FindControl("txtFName");
+            TextBox tL = (TextBox)item.FindControl("txtLName");
+            TextBox tA = (TextBox)item.FindControl("txtAge");
+            DropDownList dropEA = (DropDownList)item.FindControl("dropActive");
+
+            List<test> lstvst = null;
+            lstvst = Viewstatetest;
+            test tst = new test();
+
+            tst.AutoID = lstvst.Count+1;
+            tst.FirstName = tF.Text;
+            tst.LastName = tL.Text;
+            tst.Age = tA.Text;
+            tst.Active = dropEA.SelectedValue;
+            lstvst.Add(tst);
+            Viewstatetest = lstvst;
+            lblMessage.Text = "Record inserted successfully !";
+            this.PopulateData();
+
+        }
+        protected void EditRecord(object sender, ListViewEditEventArgs e)
+        {
+            ListView1.EditIndex = e.NewEditIndex;
+            this.PopulateData();
+        }
+        protected void UpdateRecord(object sender, ListViewUpdateEventArgs e)
+        {
+            int autoId = int.Parse(ListView1.DataKeys[e.ItemIndex].Value.ToString());
+            ListViewItem item = ListView1.Items[e.ItemIndex];
+            TextBox tF = (TextBox)item.FindControl("txtEFName");
+            TextBox tL = (TextBox)item.FindControl("txtELName");
+            TextBox tA = (TextBox)item.FindControl("txtEAge");
+            DropDownList dropEA = (DropDownList)item.FindControl("dropEActive");
+
+            List<test> lstvst = null;
+            lstvst = Viewstatetest;
+
+            test tst = lstvst.Where(t => t.AutoID == autoId).SingleOrDefault();
+            tst.FirstName = tF.Text;
+            tst.LastName = tL.Text;
+            tst.Age = tA.Text;
+            tst.Active = dropEA.SelectedValue;
+
+            Viewstatetest = lstvst;
+
+            lblMessage.Text = "Record updated successfully !";
+            ListView1.EditIndex = -1;
+            // repopulate the data
+            this.PopulateData();
+        }
+        protected void CancelEditRecord(object sender, ListViewCancelEventArgs e)
+        {
+
+            ListView1.EditIndex = -1;
+            this.PopulateData();
+        }
+        protected void DeleteRecord(object sender, ListViewDeleteEventArgs e)
+        {
+
+            int autoid = int.Parse(ListView1.DataKeys[e.ItemIndex].Value.ToString());
+            List<test> lstvst = null;
+            lstvst = Viewstatetest;
+            test tst = lstvst.Where(t => t.AutoID == autoid).SingleOrDefault();
+            lstvst.Remove(tst);
+            Viewstatetest = lstvst;
+            lblMessage.Text = "Record delete successfully !";
+            // repopulate the data
+            this.PopulateData();
+        }
+
+        private void PopulateData()
+        {
+            List<test> lstvst = null;
+            lstvst = Viewstatetest;
+            ListView1.DataSource = lstvst;
+            ListView1.DataBind();
+        }
     }
     [Serializable]
     public class patientDrugs
@@ -143,5 +249,20 @@ namespace Ormer_PHC
         public int Quantity { get; set; }
         public string Dosage { get; set; }
     }
+    [Serializable]
+    public class test
+    {
+        public int AutoID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Age { get; set; }
+        public string Active { get; set; }
+    }
+    public class labtest
+    {
+        public string LabTest { get; set; }
+        public string Result { get; set; }
+    }
+
 }
 

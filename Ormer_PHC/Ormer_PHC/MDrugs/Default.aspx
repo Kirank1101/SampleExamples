@@ -17,6 +17,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th><asp:Label runat="server" Text="Description"  /></th>
                             <th>
 								<asp:LinkButton Text="MDrugID" CommandName="Sort" CommandArgument="MDrugID" runat="Server" />
 							</th>
