@@ -1,17 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.ModelBinding;
-using System.Web.UI.WebControls;
-using System.Data.Entity;
 using Ormer_PHC.Models;
 
 
@@ -25,140 +15,41 @@ namespace Ormer_PHC
         {
             if (!IsPostBack)
             {
-                ViewstateDrugs = null;
+                ViewstateDrugNames = null;
                 List<MDisease> lst = (from c in _db.MDiseases select c).ToList();
                 ddlDisease.DataSource = lst;
                 ddlDisease.DataBind();
-                BindGridview();
                 PopulateData();
+                PopulateLabTest();
             }
         }
-
-        //private void BINDLISTVIEW()
-        //{
-        //    labtest m = new labtest();
-        //    m.LabTest = "twewe";
-        //    m.Result = "sdf";
-        //    List<labtest> lt = new System.Collections.Generic.List<labtest>();
-        //    lt.Add(m);
-        //    ListView2.DataSource = lt;
-        //    ListView2.DataBind();
-        //}
-        protected void BindDrugName(DropDownList ddldrugname, List<MDisease> Drugs)
-        {
-            ddldrugname.Items.Clear();
-            ddldrugname.Items.Add(new ListItem { Text = "Select Drug", Value = "0" });
-            ddldrugname.AppendDataBoundItems = true;
-
-            ddldrugname.DataTextField = "DiseaseName";
-            ddldrugname.DataValueField = "MDiseaseID";
-            ddldrugname.DataSource = Drugs;
-            ddldrugname.DataBind();
-        }
-        private List<MDisease> PopulateDrugs()
-        {
-            using (_db)
-            {
-                return _db.MDiseases.OrderBy(b => b.DiseaseName).ToList();
-            }
-        }
-
-        private void BindGridview()
-        {
-
-            List<patientDrugs> allpatientDrugs = null;
-            allpatientDrugs = ViewstateDrugs;
-            if (allpatientDrugs.Count == 0)
-            {
-                allpatientDrugs = new System.Collections.Generic.List<patientDrugs>();
-                allpatientDrugs.Add(new patientDrugs());
-                myGridview.DataSource = allpatientDrugs;
-                myGridview.DataBind();
-                myGridview.Rows[0].Visible = false;
-            }
-            else
-            {
-                myGridview.DataSource = allpatientDrugs;
-                myGridview.DataBind();
-            }
-
-            //Populate & bind country
-            if (myGridview.Rows.Count > 0)
-            {
-                DropDownList dd = (DropDownList)myGridview.FooterRow.FindControl("ddldrugname");
-                BindDrugName(dd, PopulateDrugs());
-            }
-
-        }
-        protected void myGridview_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            //Insert new contact
-            if (e.CommandName == "Insert")
-            {
-                Page.Validate("Add");
-                if (Page.IsValid)
-                {
-                    var fRow = myGridview.FooterRow;
-                    TextBox txtQuantity = (TextBox)fRow.FindControl("txtQuantity");
-                    TextBox txtDosage = (TextBox)fRow.FindControl("txtDosage");
-                    DropDownList ddldrugname = (DropDownList)fRow.FindControl("ddldrugname");
-                    //using (MyDatabaseEntities dc = new MyDatabaseEntities())
-                    //{
-
-                    //    //Here in this example we have done a little mistake // class name and page name is Same (contact) 
-                    //    // We will remove contact page , as its not in use
-
-                    //    dc.Contacts.Add(new Contact
-                    //    {
-                    //        ContactPerson = txtContactPerson.Text.Trim(),
-                    //        ContactNo = txtContactNo.Text.Trim(),
-                    //        CountryID = Convert.ToInt32(ddCountry.SelectedValue),
-                    //        StateID = Convert.ToInt32(ddState.SelectedValue)
-                    //    });
-                    //    dc.SaveChanges();
-                    //    PopulateContacts();
-                    //}
-
-                    List<patientDrugs> lstpd = new System.Collections.Generic.List<patientDrugs>();
-                    lstpd = ViewstateDrugs;
-                    patientDrugs pd = new patientDrugs();
-                    pd.DrugName = ddldrugname.SelectedItem.Text;
-                    pd.Dosage = txtDosage.Text;
-                    pd.Quantity = Convert.ToInt32(txtQuantity.Text);
-                    lstpd.Add(pd);
-                    ViewstateDrugs = lstpd;
-                    BindGridview();
-
-                }
-            }
-        }
-        const string VSdrugs = "viewStateDrugs";
-        public List<patientDrugs> ViewstateDrugs
+        const string VSDrugNames = "VSDrugs";
+        public List<test> ViewstateDrugNames
         {
             get
             {
-                if (ViewState[VSdrugs] == null)
-                    ViewState[VSdrugs] = new List<patientDrugs>();
-                return (List<patientDrugs>)ViewState[VSdrugs];
+                if (ViewState[VSDrugNames] == null)
+                    ViewState[VSDrugNames] = new List<test>();
+                return (List<test>)ViewState[VSDrugNames];
             }
             set
             {
-                ViewState[VSdrugs] = value;
+                ViewState[VSDrugNames] = value;
             }
         }
 
-        const string VStest = "test";
-        public List<test> Viewstatetest
+        const string VSlabtest = "VSLabtest";
+        public List<labtest> ViewstateLabTest
         {
             get
             {
-                if (ViewState[VStest] == null)
-                    ViewState[VStest] = new List<test>();
-                return (List<test>)ViewState[VStest];
+                if (ViewState[VSlabtest] == null)
+                    ViewState[VSlabtest] = new List<labtest>();
+                return (List<labtest>)ViewState[VSlabtest];
             }
             set
             {
-                ViewState[VSdrugs] = value;
+                ViewState[VSlabtest] = value;
             }
         }
         protected void InsertRecord(object sender, ListViewInsertEventArgs e)
@@ -169,17 +60,17 @@ namespace Ormer_PHC
             DropDownList ddldrugname = (DropDownList)item.FindControl("ddldrugName");
 
             List<test> lstvst = null;
-            lstvst = Viewstatetest;
+            lstvst = ViewstateDrugNames;
             test tst = new test();
 
-            tst.AutoID = lstvst.Count+1;
+            tst.AutoID = lstvst.Count + 1;
             tst.Quantity = tqty.Text;
             tst.Dosage = tdosage.Text;
             tst.DrugName = ddldrugname.SelectedItem.ToString();
             tst.DrugNameId = ddldrugname.SelectedValue;
             lstvst.Add(tst);
-            Viewstatetest = lstvst;
-            lblMessage.Text = "Record inserted successfully !";
+            ViewstateDrugNames = lstvst;
+            //lblMessage.Text = "Record inserted successfully !";
             this.PopulateData();
 
         }
@@ -197,16 +88,16 @@ namespace Ormer_PHC
             DropDownList ddlDrugName = (DropDownList)item.FindControl("ddldrugName");
 
             List<test> lstvst = null;
-            lstvst = Viewstatetest;
+            lstvst = ViewstateDrugNames;
 
             test tst = lstvst.Where(t => t.AutoID == autoId).SingleOrDefault();
             tst.Quantity = tqty.Text;
             tst.Dosage = tdosage.Text;
             tst.DrugName = ddlDrugName.SelectedItem.ToString();
             tst.DrugNameId = ddlDrugName.SelectedValue;
-            Viewstatetest = lstvst;
+            ViewstateDrugNames = lstvst;
 
-            lblMessage.Text = "Record updated successfully !";
+            //lblMessage.Text = "Record updated successfully !";
             ListView1.EditIndex = -1;
             // repopulate the data
             this.PopulateData();
@@ -222,29 +113,115 @@ namespace Ormer_PHC
 
             int autoid = int.Parse(ListView1.DataKeys[e.ItemIndex].Value.ToString());
             List<test> lstvst = null;
-            lstvst = Viewstatetest;
+            lstvst = ViewstateDrugNames;
             test tst = lstvst.Where(t => t.AutoID == autoid).SingleOrDefault();
             lstvst.Remove(tst);
-            Viewstatetest = lstvst;
-            lblMessage.Text = "Record delete successfully !";
+            ViewstateDrugNames = lstvst;
+            //lblMessage.Text = "Record delete successfully !";
             // repopulate the data
             this.PopulateData();
         }
-
         private void PopulateData()
         {
             List<test> lstvst = null;
-            lstvst = Viewstatetest;
+            lstvst = ViewstateDrugNames;
             ListView1.DataSource = lstvst;
             ListView1.DataBind();
         }
-    }
-    [Serializable]
-    public class patientDrugs
-    {
-        public string DrugName { get; set; }
-        public int Quantity { get; set; }
-        public string Dosage { get; set; }
+        private void PopulateLabTest()
+        {
+            List<labtest> lstvst = null;
+            lstvst = ViewstateLabTest;
+            ListViewlabtest.DataSource = lstvst;
+            ListViewlabtest.DataBind();
+        }
+        protected void btnSearch_Click(object sender, System.EventArgs e)
+        {
+            PatientInfo patientinfo = (from c in _db.PatientInfoes
+                                       where c.PatientName == txtPatientName.Text.Trim()
+                                       select c).SingleOrDefault();
+            if (patientinfo != null)
+            {
+                lblage.Text = patientinfo.PatientAge;
+                lblbloodgroup.Text = patientinfo.bloodgroupinfos.BloodGroupName;
+            }
+            else
+            {
+                lblage.Text = string.Empty;
+                lblbloodgroup.Text = string.Empty;
+            }
+        }
+
+
+        protected void LVLabTestInsertRecord(object sender, ListViewInsertEventArgs e)
+        {
+            ListViewItem item = e.Item;
+            TextBox tqty = (TextBox)item.FindControl("txtquantity");
+            TextBox tdosage = (TextBox)item.FindControl("txtdosage");
+            DropDownList ddldrugname = (DropDownList)item.FindControl("ddldrugName");
+
+            List<test> lstvst = null;
+            lstvst = ViewstateDrugNames;
+            test tst = new test();
+
+            tst.AutoID = lstvst.Count + 1;
+            tst.Quantity = tqty.Text;
+            tst.Dosage = tdosage.Text;
+            tst.DrugName = ddldrugname.SelectedItem.ToString();
+            tst.DrugNameId = ddldrugname.SelectedValue;
+            lstvst.Add(tst);
+            ViewstateDrugNames = lstvst;
+            //lblMessage.Text = "Record inserted successfully !";
+            this.PopulateData();
+
+        }
+        protected void LVLabTestEditRecord(object sender, ListViewEditEventArgs e)
+        {
+            ListView1.EditIndex = e.NewEditIndex;
+            this.PopulateData();
+        }
+        protected void LVLabTestUpdateRecord(object sender, ListViewUpdateEventArgs e)
+        {
+            int autoId = int.Parse(ListView1.DataKeys[e.ItemIndex].Value.ToString());
+            ListViewItem item = ListView1.Items[e.ItemIndex];
+            TextBox tqty = (TextBox)item.FindControl("txtquantity");
+            TextBox tdosage = (TextBox)item.FindControl("txtdosage");
+            DropDownList ddlDrugName = (DropDownList)item.FindControl("ddldrugName");
+
+            List<test> lstvst = null;
+            lstvst = ViewstateDrugNames;
+
+            test tst = lstvst.Where(t => t.AutoID == autoId).SingleOrDefault();
+            tst.Quantity = tqty.Text;
+            tst.Dosage = tdosage.Text;
+            tst.DrugName = ddlDrugName.SelectedItem.ToString();
+            tst.DrugNameId = ddlDrugName.SelectedValue;
+            ViewstateDrugNames = lstvst;
+
+            //lblMessage.Text = "Record updated successfully !";
+            ListView1.EditIndex = -1;
+            // repopulate the data
+            this.PopulateData();
+        }
+        protected void LVLabTestCancelEditRecord(object sender, ListViewCancelEventArgs e)
+        {
+
+            ListView1.EditIndex = -1;
+            this.PopulateData();
+        }
+        protected void LVLabTestDeleteRecord(object sender, ListViewDeleteEventArgs e)
+        {
+
+            int autoid = int.Parse(ListView1.DataKeys[e.ItemIndex].Value.ToString());
+            List<test> lstvst = null;
+            lstvst = ViewstateDrugNames;
+            test tst = lstvst.Where(t => t.AutoID == autoid).SingleOrDefault();
+            lstvst.Remove(tst);
+            ViewstateDrugNames = lstvst;
+            //lblMessage.Text = "Record delete successfully !";
+            // repopulate the data
+            this.PopulateData();
+        }
     }
     [Serializable]
     public class test
@@ -255,10 +232,14 @@ namespace Ormer_PHC
         public string DrugName { get; set; }
         public string DrugNameId { get; set; }
     }
+
+    [Serializable]
     public class labtest
     {
-        public string LabTest { get; set; }
+        public int AutoID { get; set; }
         public string Result { get; set; }
+        public string LabtestName { get; set; }
+        public string LabtestNameId { get; set; }
     }
 
 }

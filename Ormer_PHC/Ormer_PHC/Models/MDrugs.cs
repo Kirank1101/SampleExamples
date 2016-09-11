@@ -21,14 +21,12 @@ namespace Ormer_PHC.Models
 
         [Required]
         [DataType(DataType.Date)]        
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]        
         [Column("MFdate")]
         [Display(Name = "Manufactured date")]
         public DateTime MFdate { get; set; }
 
         [Required]
         [DataType(DataType.Date)]        
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]        
         [Column("EXdate")]
         [Display(Name = "Expiry date")]
         public DateTime EXdate { get; set; }
