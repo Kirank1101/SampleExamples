@@ -164,20 +164,19 @@ namespace Ormer_PHC
         protected void InsertRecord(object sender, ListViewInsertEventArgs e)
         {
             ListViewItem item = e.Item;
-            TextBox tF = (TextBox)item.FindControl("txtFName");
-            TextBox tL = (TextBox)item.FindControl("txtLName");
-            TextBox tA = (TextBox)item.FindControl("txtAge");
-            DropDownList dropEA = (DropDownList)item.FindControl("dropActive");
+            TextBox tqty = (TextBox)item.FindControl("txtquantity");
+            TextBox tdosage = (TextBox)item.FindControl("txtdosage");
+            DropDownList ddldrugname = (DropDownList)item.FindControl("ddldrugName");
 
             List<test> lstvst = null;
             lstvst = Viewstatetest;
             test tst = new test();
 
             tst.AutoID = lstvst.Count+1;
-            tst.FirstName = tF.Text;
-            tst.LastName = tL.Text;
-            tst.Age = tA.Text;
-            tst.Active = dropEA.SelectedValue;
+            tst.Quantity = tqty.Text;
+            tst.Dosage = tdosage.Text;
+            tst.DrugName = ddldrugname.SelectedItem.ToString();
+            tst.DrugNameId = ddldrugname.SelectedValue;
             lstvst.Add(tst);
             Viewstatetest = lstvst;
             lblMessage.Text = "Record inserted successfully !";
@@ -193,20 +192,18 @@ namespace Ormer_PHC
         {
             int autoId = int.Parse(ListView1.DataKeys[e.ItemIndex].Value.ToString());
             ListViewItem item = ListView1.Items[e.ItemIndex];
-            TextBox tF = (TextBox)item.FindControl("txtEFName");
-            TextBox tL = (TextBox)item.FindControl("txtELName");
-            TextBox tA = (TextBox)item.FindControl("txtEAge");
-            DropDownList dropEA = (DropDownList)item.FindControl("dropEActive");
+            TextBox tqty = (TextBox)item.FindControl("txtquantity");
+            TextBox tdosage = (TextBox)item.FindControl("txtdosage");
+            DropDownList ddlDrugName = (DropDownList)item.FindControl("ddldrugName");
 
             List<test> lstvst = null;
             lstvst = Viewstatetest;
 
             test tst = lstvst.Where(t => t.AutoID == autoId).SingleOrDefault();
-            tst.FirstName = tF.Text;
-            tst.LastName = tL.Text;
-            tst.Age = tA.Text;
-            tst.Active = dropEA.SelectedValue;
-
+            tst.Quantity = tqty.Text;
+            tst.Dosage = tdosage.Text;
+            tst.DrugName = ddlDrugName.SelectedItem.ToString();
+            tst.DrugNameId = ddlDrugName.SelectedValue;
             Viewstatetest = lstvst;
 
             lblMessage.Text = "Record updated successfully !";
@@ -253,10 +250,10 @@ namespace Ormer_PHC
     public class test
     {
         public int AutoID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Age { get; set; }
-        public string Active { get; set; }
+        public string Quantity { get; set; }
+        public string Dosage { get; set; }
+        public string DrugName { get; set; }
+        public string DrugNameId { get; set; }
     }
     public class labtest
     {
