@@ -231,6 +231,7 @@
     <Content Include="PrimaryHCs\Details.aspx" />
     <Content Include="PrimaryHCs\Edit.aspx" />
     <Content Include="PrimaryHCs\Insert.aspx" />
+    <Content Include="ReportBloodGroup.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -887,6 +888,13 @@
       <DependentUpon>Insert.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportBloodGroup.aspx.cs">
+      <DependentUpon>ReportBloodGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportBloodGroup.aspx.designer.cs">
+      <DependentUpon>ReportBloodGroup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

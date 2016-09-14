@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ormer_PHC.MLabTests {
+namespace Ormer_PHC {
     
     
-    public partial class Default {
+    public partial class ReportBloodGroup {
         
         /// <summary>
         /// ListView1 control.

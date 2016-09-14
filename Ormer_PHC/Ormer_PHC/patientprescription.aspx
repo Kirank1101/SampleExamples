@@ -18,10 +18,10 @@
                 </td>
 
                 <td>
-                        <div class="col-sm-offset-0 col-sm-10">
-                            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-default" OnClick="btnSearch_Click" />
-                        </div>
-                    
+                    <div class="col-sm-offset-0 col-sm-10">
+                        <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-default" OnClick="btnSearch_Click" />
+                    </div>
+
                 </td>
             </tr>
         </table>
@@ -98,35 +98,33 @@
                         <td>
                             <fieldset>
                                 <legend>Drugs Details</legend>
-                                
+
                                 <asp:ListView ID="ListView1" runat="server" ItemPlaceholderID="itemPlaceHolder1"
                                     OnItemEditing="EditRecord" OnItemCanceling="CancelEditRecord" DataKeyNames="AutoId"
                                     OnItemInserting="InsertRecord" OnItemUpdating="UpdateRecord" InsertItemPosition="LastItem"
-                                    OnItemDeleting="DeleteRecord">
+                                    OnItemDeleting="DeleteRecord" OnPagePropertiesChanging="ListView1_PagePropertiesChanging" OnSorting="ListView1_Sorting">
                                     <EmptyDataTemplate>
                                         There are no entries found for MDrugs
                                     </EmptyDataTemplate>
                                     <LayoutTemplate>
                                         <table class="table">
-                                            <tr>
-                                                <th style="color: #428bca">Drug Name
-                                                </th>
-                                                <th style="color: #428bca">Quantity
-                                                </th>
-                                                <th style="color: #428bca">Dosage
-                                                </th>
-                                                <th style="color: #428bca">Action
-                                                </th>
-                                            </tr>
-                                            <asp:PlaceHolder ID="itemPlaceHolder1" runat="server"></asp:PlaceHolder>
+                                            <thead>
+                                                <tr>
+                                                    <th style="color: #428bca">
+                                                        <asp:LinkButton Text="Drug Name" CommandName="Sort" CommandArgument="DrugName" runat="Server" />
+                                                    </th>
+                                                    <th style="color: #428bca">Quantity
+                                                    </th>
+                                                    <th style="color: #428bca">Dosage
+                                                    </th>
+                                                    <th style="color: #428bca">Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <asp:PlaceHolder ID="itemPlaceHolder1" runat="server"></asp:PlaceHolder>
+                                            </tbody>
                                         </table>
-                                        <asp:DataPager PageSize="5" runat="server">
-                                            <Fields>
-                                                <asp:NextPreviousPagerField ShowLastPageButton="False" ShowNextPageButton="False" ButtonType="Button" ButtonCssClass="btn" />
-                                                <asp:NumericPagerField ButtonType="Button" NumericButtonCssClass="btn" CurrentPageLabelCssClass="btn disabled" NextPreviousButtonCssClass="btn" />
-                                                <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowPreviousPageButton="False" ButtonType="Button" ButtonCssClass="btn" />
-                                            </Fields>
-                                        </asp:DataPager>
                                     </LayoutTemplate>
                                     <ItemTemplate>
                                         <tr>
@@ -151,7 +149,7 @@
                                     <EditItemTemplate>
                                         <tr style="background-color: #efefef;">
                                             <td>
-                                                <asp:DropDownList ID="ddldrugName" runat="server" SelectedValue='<%# Eval("DrugNameId") %>'>
+                                                <asp:DropDownList ID="ddldrugName" runat="server" SelectedValue='<%# Eval("DrugNameId") %>' CssClass="form-control">
                                                     <asp:ListItem Text="Paracitamal" Value="p1" />
                                                     <asp:ListItem Text="calpal125" Value="c1" />
                                                     <asp:ListItem Text="calpal250" Value="c2" />
@@ -159,13 +157,14 @@
                                                 </asp:DropDownList>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="txtquantity" runat="server" Text='<%# Eval("Quantity") %>' />
+                                                <asp:TextBox ID="txtquantity" runat="server" Text='<%# Eval("Quantity") %>' CssClass="form-control" /><asp:RequiredFieldValidator runat="server" ID="reqName" ErrorMessage="*"
+                                                    ControlToValidate="txtquantity" ForeColor="Red" ValidationGroup="Add2" />
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="txtdosage" runat="server" Text='<%# Eval("Dosage") %>' />
+                                                <asp:TextBox ID="txtdosage" runat="server" Text='<%# Eval("Dosage") %>' CssClass="form-control" />
                                             </td>
                                             <td>
-                                                <asp:LinkButton ID="lnkUpdate" runat="server" Text="Update" CommandName="Update" />
+                                                <asp:LinkButton ID="lnkUpdate" runat="server" Text="Update" CommandName="Update" ValidationGroup="Add2" />
                                                 <asp:LinkButton ID="lnkCancel" runat="server" Text="Cancel" CommandName="Cancel" />
                                             </td>
                                         </tr>
@@ -181,24 +180,43 @@
                                                 </asp:DropDownList>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="txtquantity" runat="server" CssClass="form-control" />
+                                                <asp:TextBox ID="txtquantity" runat="server" CssClass="form-control" /><asp:RequiredFieldValidator runat="server" ID="reqName" ErrorMessage="*" ControlToValidate="txtquantity" ForeColor="Red" ValidationGroup="Add1" />
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="txtdosage" runat="server" CssClass="form-control" />
                                             </td>
                                             <td>
                                                 <span onclick="return confirm('Are you sure to insert?')">
-                                                    <asp:LinkButton ID="lnkInser" runat="server" ValidationGroup="Add1" Text="Insert" CommandName="Insert" />
+                                                    <asp:LinkButton ID="lnkInser" runat="server" ValidationGroup="Add1" Text="Add" CommandName="Insert" />
                                                 </span>
                                             </td>
                                         </tr>
                                     </InsertItemTemplate>
                                 </asp:ListView>
+                                
+                                        <asp:DataPager ID="DPLV1" PageSize="5" runat="server" PagedControlID="ListView1">
+                                            <Fields>
+                                                <asp:NextPreviousPagerField ShowLastPageButton="False" ShowNextPageButton="False" ButtonType="Button" ButtonCssClass="btn" />
+                                                <asp:NumericPagerField ButtonType="Button" NumericButtonCssClass="btn" CurrentPageLabelCssClass="btn disabled" NextPreviousButtonCssClass="btn" />
+                                                <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowPreviousPageButton="False" ButtonType="Button" ButtonCssClass="btn" />
+                                            </Fields>
+                                        </asp:DataPager>
                             </fieldset>
                             <br />
                             <br />
                         </td>
 
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
                     </tr>
 
                     <tr>
@@ -208,7 +226,7 @@
                                 <asp:ListView ID="ListViewlabtest" runat="server" ItemPlaceholderID="itemPlaceHolder1"
                                     OnItemEditing="LVLabTestEditRecord" OnItemCanceling="LVLabTestCancelEditRecord" DataKeyNames="AutoId"
                                     OnItemInserting="LVLabTestInsertRecord" OnItemUpdating="LVLabTestUpdateRecord" InsertItemPosition="LastItem"
-                                    OnItemDeleting="LVLabTestDeleteRecord">
+                                    OnItemDeleting="LVLabTestDeleteRecord" OnItemDataBound="ListViewlabtest_OnItemDataBound" OnItemCreated="ListViewlabtest_ItemCreated">
                                     <EmptyDataTemplate>
                                         There are no entries found for MDrugs
                                     </EmptyDataTemplate>
@@ -224,13 +242,6 @@
                                             </tr>
                                             <asp:PlaceHolder ID="itemPlaceHolder1" runat="server"></asp:PlaceHolder>
                                         </table>
-                                        <asp:DataPager PageSize="5" runat="server">
-                                            <Fields>
-                                                <asp:NextPreviousPagerField ShowLastPageButton="False" ShowNextPageButton="False" ButtonType="Button" ButtonCssClass="btn" />
-                                                <asp:NumericPagerField ButtonType="Button" NumericButtonCssClass="btn" CurrentPageLabelCssClass="btn disabled" NextPreviousButtonCssClass="btn" />
-                                                <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowPreviousPageButton="False" ButtonType="Button" ButtonCssClass="btn" />
-                                            </Fields>
-                                        </asp:DataPager>
                                     </LayoutTemplate>
                                     <ItemTemplate>
                                         <tr>
@@ -252,15 +263,14 @@
                                     <EditItemTemplate>
                                         <tr style="background-color: #efefef;">
                                             <td>
-                                                <asp:DropDownList ID="ddlLabtestName" runat="server" SelectedValue='<%# Eval("LabTestId") %>'>
-                                                    <asp:ListItem Text="Bloodtest" Value="b1" />
-                                                    <asp:ListItem Text="calpal125" Value="c1" />
-                                                    <asp:ListItem Text="calpal250" Value="c2" />
-                                                    <asp:ListItem Text="Amoxylen" Value="a1" />
+                                                <asp:DropDownList ID="ddlLabtestName" runat="server" SelectedValue='<%# Eval("MLabTestID") %>' CssClass="form-control"
+                                                    DataTextField="LabTestName" DataValueField="MLabTestID">
+                                                    <asp:ListItem Text="Yes" Value="1" />
+                                                    <asp:ListItem Text="No" Value="2" />
                                                 </asp:DropDownList>
                                             </td>
                                             <td>
-                                                <asp:TextBox ID="txtResult" runat="server" Text='<%# Eval("Result") %>' />
+                                                <asp:TextBox ID="txtResult" runat="server" Text='<%# Eval("Result") %>' CssClass="form-control" />
                                             </td>
                                             <td>
                                                 <asp:LinkButton ID="lnkUpdate" runat="server" Text="Update" CommandName="Update" />
@@ -271,11 +281,8 @@
                                     <InsertItemTemplate>
                                         <tr>
                                             <td>
-                                                <asp:DropDownList ID="ddlLabtestName" runat="server" CssClass="form-control">
-                                                    <asp:ListItem Text="Paracitamal" Value="p1" />
-                                                    <asp:ListItem Text="calpal125" Value="c1" />
-                                                    <asp:ListItem Text="calpal250" Value="c2" />
-                                                    <asp:ListItem Text="Amoxylen" Value="a1" />
+                                                <asp:DropDownList ID="ddlLabtestName" runat="server" CssClass="form-control"
+                                                    DataTextField="LabTestName" DataValueField="MLabTestID">
                                                 </asp:DropDownList>
                                             </td>
                                             <td>
@@ -283,7 +290,7 @@
                                             </td>
                                             <td>
                                                 <span onclick="return confirm('Are you sure to insert?')">
-                                                    <asp:LinkButton ID="lnkInser" runat="server" ValidationGroup="Add1" Text="Insert" CommandName="Insert" />
+                                                    <asp:LinkButton ID="lnkInser" runat="server" Text="Add" CommandName="Insert" />
                                                 </span>
                                             </td>
                                         </tr>
