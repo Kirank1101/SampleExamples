@@ -46,20 +46,34 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/">PHC Application</a>
                 </div>
+
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                        <li><a runat="server" class="Dropdown">PHC</a>
-                        </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<span class="create"></span></a>
+                            <a runat="server" class="dropdown-toggle" data-toggle="dropdown">Master Setting
+                                <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Friends</a></li>
+                                <li>
+                                    <a href="/MDiseases/Default">Diseases</a>
+                                </li>
+                                <li>
+                                    <a href="/MDrugs/Default">Drugs</a>
+                                </li>
+                                <li>
+                                    <a href="/MLabTests/Default">LabTest</a>
+                                </li>
                             </ul>
+                        </li>
+
+                        <li>
+                            <a href="/Code/Filtering/Default.aspx">Clinic</a>
+                        </li>
+
+                        <li>
+                            <a href="/Code/CustomFormatting/Default.aspx">Reports</a>
                         </li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
@@ -67,6 +81,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Register">Register</a></li>
                                 <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                                <li><a runat="server" href="~/Account/Login">My Profile</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
@@ -82,15 +97,15 @@
             </div>
         </div>
         <div class="container body-content">
-          
-             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-                         </ContentTemplate>
+
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </ContentTemplate>
 
 
-                </asp:UpdatePanel>
+            </asp:UpdatePanel>
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - Primary Health Centre Application</p>
