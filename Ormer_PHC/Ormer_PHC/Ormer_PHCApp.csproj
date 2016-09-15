@@ -275,6 +275,7 @@
     <Content Include="TalukHCs\Details.aspx" />
     <Content Include="TalukHCs\Edit.aspx" />
     <Content Include="TalukHCs\Insert.aspx" />
+    <Content Include="Testewebform.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Villages\Default.aspx" />
     <Content Include="Villages\Delete.aspx" />
@@ -979,6 +980,13 @@
     </Compile>
     <Compile Include="TalukHCs\Insert.aspx.designer.cs">
       <DependentUpon>Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Testewebform.aspx.cs">
+      <DependentUpon>Testewebform.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Testewebform.aspx.designer.cs">
+      <DependentUpon>Testewebform.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
